@@ -1,0 +1,28 @@
+<svg id="ic_app_icon" data-name="ic app icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.024" x2="0.905" y2="0.871" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#efcf49"/>
+      <stop offset="1" stop-color="#ff9124"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_13" data-name="Rectangle 13" width="16" height="16" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <path id="Path_40" data-name="Path 40" d="M1615.525,2538.424c8.9,6.187,13.657,10.405,11.978,17.624s-6.163,12.421-14.8,12.719-13.61-1.545-16.467-12.719S1606.621,2532.237,1615.525,2538.424Z" transform="translate(-1595.837 -2536.794)" fill="url(#linear-gradient)"/>
+  <g id="ic_skill_search" data-name="ic skill search" transform="translate(7.952 8.186)">
+    <g id="ic_skill_search-2" data-name="ic skill search" clip-path="url(#clip-path)">
+      <g id="research" transform="translate(0.007)">
+        <g id="Group_4" data-name="Group 4" transform="translate(8.793 8.793)">
+          <g id="Group_3" data-name="Group 3">
+            <path id="Path_7" data-name="Path 7" d="M17.953,16.826l-1.039-1.039a2.882,2.882,0,0,0,.48-1.6,3.2,3.2,0,1,0-3.2,3.2,2.882,2.882,0,0,0,1.6-.48l1.039,1.039a.752.752,0,0,0,1.119,0A.773.773,0,0,0,17.953,16.826ZM14.2,15.787a1.6,1.6,0,1,1,1.6-1.6A1.6,1.6,0,0,1,14.2,15.787Z" transform="translate(-10.999 -10.991)" fill="#fff"/>
+          </g>
+        </g>
+        <g id="Group_6" data-name="Group 6" transform="translate(0)">
+          <g id="Group_5" data-name="Group 5">
+            <path id="Path_8" data-name="Path 8" d="M12,0H.808a.755.755,0,0,0-.8.8V15.187a.755.755,0,0,0,.8.8H9.361A4.79,4.79,0,0,1,12,7.194a2.719,2.719,0,0,1,.8.08V.8A.755.755,0,0,0,12,0ZM6.4,6.395h-4a.8.8,0,0,1-.8-.8.755.755,0,0,1,.8-.8h4a.755.755,0,0,1,.8.8A.8.8,0,0,1,6.4,6.395Zm4-3.2H2.406a.8.8,0,0,1-.8-.8.755.755,0,0,1,.8-.8H10.4a.755.755,0,0,1,.8.8A.8.8,0,0,1,10.4,3.2Z" transform="translate(-0.008)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

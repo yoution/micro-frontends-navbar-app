@@ -1,0 +1,149 @@
+.all-apps-menu {
+  position: relative;
+  user-select: none;
+}
+
+.all-apps-menu-handler {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  border-radius: 16px;
+  height: 32px;
+  margin-left: -8px;
+  padding: 0 10px 0 8px;
+}
+
+.all-apps-menu-handler-active,
+.all-apps-menu-handler:hover {
+  background-color: #000;
+}
+
+.all-apps-menu-handler:focus {
+  outline: none;
+}
+
+.all-apps-menu-handler > img {
+  height: 24px;
+  width: 24px;
+}
+
+.all-apps-menu-handler > span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.all-apps-menu-list-title {
+  font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.all-apps-menu-list {
+  margin: 0;
+  padding: 0;
+}
+
+.all-apps-menu-list > li {
+  list-style: none;
+}
+
+.all-apps-menu-list > li + li {
+  margin-top: 10px;
+}
+
+.all-apps-menu-list > li > a {
+  align-items: center;
+  border-radius: 8px;
+  color: #333333;
+  display: flex;
+  font-size: 14px;
+  height: 40px;
+  margin: 0 -4px;
+  padding: 0 4px;
+  position: relative;
+  text-decoration: none;
+}
+
+.all-apps-menu-list > li > a:hover {
+  background-color: #f4f5f8;
+}
+
+.all-apps-menu-list > li > a:hover::after {
+  content: "";
+  background-image: url("../../assets/images/arrow-right.svg");
+  height: 16px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 16px;
+}
+
+.all-apps-menu-list > li > a > img {
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
+}
+
+.all-apps-menu-popover {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 10px 50px #00000029;
+  left: -4px;
+  position: absolute;
+  top: 41px;
+  width: 286px;
+  z-index: 1000;
+}
+
+.all-apps-menu-popover-arrow {
+  border-style: solid;
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #fff transparent;
+  height: 0;
+  left: 10px;
+  top: -6px;
+  position: absolute;
+  width: 0;
+}
+
+.all-apps-menu-popover-content {
+  padding: 20px;
+}
+
+@media (max-width: 1023px) {
+  .all-apps-menu-popover-arrow {
+    display: none;
+  }
+
+  .all-apps-menu-popover-wrapper {
+    align-items: center;
+    background-color: #00000080;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+  }
+
+  .all-apps-menu-popover-overlay {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  .all-apps-menu-popover {
+    left: 0;
+    top: 0;
+    position: relative;
+  }
+}

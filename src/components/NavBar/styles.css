@@ -1,0 +1,22 @@
+.navbar {
+  align-items: center;
+  display: flex;
+  background-color: #2a2a2a;
+  height: var(--navbarHeight);
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar-center {
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.navbar-login {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}

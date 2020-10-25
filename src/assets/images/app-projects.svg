@@ -1,0 +1,21 @@
+<svg id="ic_app_icon" data-name="ic app icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32.003" viewBox="0 0 32 32.003">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.074" y1="0.18" x2="0.869" y2="0.782" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#29d49f"/>
+      <stop offset="1" stop-color="#22b88a"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_14" data-name="Rectangle 14" width="16" height="16" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <path id="Path_48" data-name="Path 48" d="M1616.568,2542.255c9.629,4.337,13.3,11.061,10.3,18.043s-5.408,13.054-14.372,12.992-15.4-3.625-16.537-13.971S1606.939,2537.917,1616.568,2542.255Z" transform="translate(-1595.887 -2541.288)" fill="url(#linear-gradient)"/>
+  <g id="ic_project" data-name="ic project" transform="translate(8 8)">
+    <g id="ic_project-2" data-name="ic project" clip-path="url(#clip-path)">
+      <g id="folder" transform="translate(0 1.906)">
+        <path id="Path_12" data-name="Path 12" d="M.937,6.6A1.408,1.408,0,0,1,2.344,5.2h8.125A1.408,1.408,0,0,1,11.875,6.6V7.07h.937V5.508a1.251,1.251,0,0,0-1.25-1.25H5.937V3.633a1.251,1.251,0,0,0-1.25-1.25H1.25A1.251,1.251,0,0,0,0,3.633V12.2l.937-1.5Z" transform="translate(0 -2.383)" fill="#fff"/>
+        <path id="Path_13" data-name="Path 13" d="M10.937,7.07H2.812a.469.469,0,0,0-.469.469v2.594l.914-1.464a1.4,1.4,0,0,1,1.193-.661h6.955V7.539A.469.469,0,0,0,10.937,7.07Z" transform="translate(-0.469 -3.32)" fill="#fff"/>
+        <path id="Path_14" data-name="Path 14" d="M12.345,15.977H.47a.469.469,0,0,1-.4-.717L3.585,9.634a.469.469,0,0,1,.4-.22H14.906a1.094,1.094,0,0,1,.913,1.7l-3.084,4.656A.469.469,0,0,1,12.345,15.977Z" transform="translate(0 -3.789)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

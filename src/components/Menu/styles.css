@@ -1,0 +1,88 @@
+.menu,
+.menu-submenu {
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li,
+.menu-submenu > li {
+  list-style: none;
+}
+
+.menu > li + li {
+  margin-top: 12px;
+}
+
+.menu-submenu {
+  margin-top: 6px;
+}
+
+.menu-submenu > li + li {
+  margin-top: 6px;
+}
+
+.menu-link {
+  border-left: 4px solid transparent;
+  color: #333333;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  outline: none;
+  padding-left: 21px;
+  text-decoration: none;
+}
+
+.menu-link-active {
+  border-left-color: #12c188;
+  font-weight: 500;
+}
+
+.menu-submenu .menu-link {
+  font-size: 12px;
+  font-weight: normal;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 31px;
+}
+
+.menu-submenu .menu-link-active {
+  font-weight: 500;
+}
+
+.menu-link-toggle::after {
+  background-image: url("../../assets/images/tick-down.svg");
+  content: "";
+  display: inline-block;
+  height: 12px;
+  margin-left: 9px;
+  vertical-align: middle;
+  width: 12px;
+}
+
+.menu-link-toggle-up::after {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1023px) {
+  .menu-link {
+    font-size: 16px;
+  }
+
+  .menu-submenu {
+    margin-top: 10px;
+  }
+
+  .menu-submenu > li + li {
+    margin-top: 10px;
+  }
+
+  .menu-submenu .menu-link {
+    font-size: 14px;
+    font-weight: normal;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 31px;
+  }
+}
