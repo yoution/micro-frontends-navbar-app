@@ -12,29 +12,29 @@ export const APPS = [
   {
     title: "TaaS",
     icon: appTaasIcon,
-    path: "/react-example",
+    path: "/micro-frontends-react-route",
     menu: [
-      { title: "My Teams", path: "/react-example" },
-      { title: "Feedback", path: "/react-example/feedback" },
-      { title: "Invoices", path: "/react-example/invoices" },
-      { title: "Reports", path: "/react-example/reports" },
+      { title: "My Teams", path: "/micro-frontends-react-route/myteam" },
+      { title: "Feedback", path: "/micro-frontends-react-route/feedback" },
+      { title: "Invoices", path: "/micro-frontends-react-route/invoices" },
+      { title: "Reports", path: "/micro-frontends-react-route/reports" },
     ],
   },
   {
     title: "Skill Search",
     icon: appSkillSearchIcon,
-    path: "/angular-example",
+    path: "/micro-frontends-angular-route",
     menu: [
-      { title: "Search", path: "/angular-example" },
+      { title: "Search", path: "/micro-frontends-angular-route" },
       {
         title: "Group",
         children: [
-          { title: "Development", path: "/angular-example/group/development" },
-          { title: "Design", path: "/angular-example/group/design" },
-          { title: "Q&A", path: "/angular-example/group/qa" },
+          { title: "Development", path: "/micro-frontends-angular-route/group/development" },
+          { title: "Design", path: "/micro-frontends-angular-route/group/design" },
+          { title: "Q&A", path: "/micro-frontends-angular-route/group/qa" },
         ],
       },
-      { title: "Data Import", path: "/angular-example/data-import" },
+      { title: "Data Import", path: "/micro-frontends-angular-route/data-import" },
     ],
   },
   {
