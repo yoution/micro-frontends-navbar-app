@@ -2,6 +2,7 @@
  * `auth` reducer
  */
 import { ACTIONS } from "../constants";
+import { getStoreManager } from '../global-store';
 
 const initialState = {
   isInitialized: false,
@@ -10,30 +11,51 @@ const initialState = {
   profile: null,
 };
 
+const authStore = getStoreManager().getGlobalStore().auth;
+
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.AUTH.SET_TOKEN_V2:
-      return {
+    case ACTIONS.AUTH.SET_TOKEN_V2: {
+      const nextState = {
         ...state,
         tokenV2: action.payload,
       };
-    case ACTIONS.AUTH.SET_TOKEN_V3:
-      return {
+      // Update global state
+      authStore.setAuthState(nextState);
+      return nextState;
+    }
+    case ACTIONS.AUTH.SET_TOKEN_V3:  {
+      const nextState = {
         ...state,
         tokenV3: action.payload,
       };
-    case ACTIONS.AUTH.LOAD_PROFILE:
-      return {
+      // Update global state
+      authStore.setAuthState(nextState);
+      return nextState;
+    }
+    case ACTIONS.AUTH.LOAD_PROFILE: {
+      const nextState = {
         ...state,
         profile: action.payload,
       };
-    case ACTIONS.AUTH.SET_INITIALIZED:
-      return {
+      // Update global state
+      authStore.setAuthState(nextState);
+      return nextState;
+    }
+    case ACTIONS.AUTH.SET_INITIALIZED:{
+      const nextState = {
         ...state,
         isInitialized: true,
       };
-    default:
+      // Update global state
+      authStore.setAuthState(nextState);
+      return nextState;
+    }
+    default: {
+      // Update global state
+      authStore.setAuthState(state);
       return state;
+    }
   }
 };
 

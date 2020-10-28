@@ -6,7 +6,6 @@ import MainMenu from "./components/MainMenu";
 import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
 import { APPS } from "./constants";
-
 const App = () => {
   return (
     <>
