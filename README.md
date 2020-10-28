@@ -55,3 +55,4 @@ Make sure you have [Heroky CLI](https://devcenter.heroku.com/articles/heroku-cli
 - `git push heroku master` - push changes to Heroku and trigger deploying
 - Now you have to configure frame app to use the URL provided by Heroku like `https://<APP-NAME>.herokuapp.com/topcoder-micro-frontends-navbar-app.js` to load this microapp.
 - NOTE: Authorization would not work because only predefined list of domain allowed by `accounts-app`.
+
