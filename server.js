@@ -1,10 +1,9 @@
 /* global process */
-
 const express = require("express");
 
 const app = express();
 
-app.use(
+app.use('/navbar', 
   express.static("./dist", {
     setHeaders: function setHeaders(res) {
       res.header("Access-Control-Allow-Origin", "*");
