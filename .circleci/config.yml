@@ -28,11 +28,18 @@ builddeploy_steps: &builddeploy_steps
   - setup_remote_docker
   - run: *install_dependency
   - run: *install_deploysuite
-  - run: ./build.sh ${APPNAME}
+  - run: 
+      command: |
+        ./awsconfiguration.sh $DEPLOY_ENV
+        source awsenvconf
+        ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-${APPNAME}-buildvar
+  - run: 
+      command: |
+        source buildenvvar
+        ./build.sh ${APPNAME} 
   - deploy:
       name: Running MasterScript.
       command: |
-        ./awsconfiguration.sh $DEPLOY_ENV
         source awsenvconf
         ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-${APPNAME}-deployvar
         source buildenvvar
