@@ -48,7 +48,7 @@ const AllAppsMenu = () => {
             <div className="all-apps-menu-popover">
               <div className="all-apps-menu-popover-arrow" />
               <div className="all-apps-menu-popover-content">
-                <div className="all-apps-menu-list-title">ALL APPS</div>
+                <div className="all-apps-menu-list-title">Micro Frontend</div>
                 <ul className="all-apps-menu-list">
                   {APPS.map((app) => (
                     <li key={app.path}>
