@@ -1,6 +1,8 @@
 /**
  * Config for the All Apps menu.
  */
+import appReactIcon from "../assets/images/reactjs.svg";
+import appAngularIcon from "../assets/images/angularjs.svg";
 import appTaasIcon from "../assets/images/app-taas.svg";
 import appSkillSearchIcon from "../assets/images/app-skill-search.svg";
 import appProjectsIcon from "../assets/images/app-projects.svg";
@@ -10,31 +12,47 @@ import appName2Icon from "../assets/images/app-name-2.svg";
 
 export const APPS = [
   {
-    title: "TaaS",
-    icon: appTaasIcon,
+    title: "React Example",
+    icon: appReactIcon,
     path: "/micro-frontends-react-route",
     menu: [
-      { title: "My Teams", path: "/micro-frontends-react-route/myteam" },
-      { title: "Feedback", path: "/micro-frontends-react-route/feedback" },
-      { title: "Invoices", path: "/micro-frontends-react-route/invoices" },
-      { title: "Reports", path: "/micro-frontends-react-route/reports" },
+      { title: "Home", path: "/micro-frontends-react-route" },
+    ],
+  },
+  {
+    title: "Angular Example",
+    icon: appAngularIcon,
+    path: "/micro-frontends-angular-route",
+    menu: [
+      { title: "Home", path: "/micro-frontends-angular-route" },
+    ],
+  },
+  {
+    title: "TaaS",
+    icon: appTaasIcon,
+    path: "/taas",
+    menu: [
+      { title: "My Teams", path: "/taas/myteam" },
+      { title: "Feedback", path: "/taas/feedback" },
+      { title: "Invoices", path: "/taas/invoices" },
+      { title: "Reports", path: "/taas/reports" },
     ],
   },
   {
     title: "Skill Search",
     icon: appSkillSearchIcon,
-    path: "/micro-frontends-angular-route",
+    path: "/skills-search",
     menu: [
-      { title: "Search", path: "/micro-frontends-angular-route" },
+      { title: "Search", path: "/skills-search" },
       {
         title: "Group",
         children: [
-          { title: "Development", path: "/micro-frontends-angular-route/group/development" },
-          { title: "Design", path: "/micro-frontends-angular-route/group/design" },
-          { title: "Q&A", path: "/micro-frontends-angular-route/group/qa" },
+          { title: "Development", path: "/skills-search/group/development" },
+          { title: "Design", path: "/skills-search/group/design" },
+          { title: "Q&A", path: "/skills-search/group/qa" },
         ],
       },
-      { title: "Data Import", path: "/micro-frontends-angular-route/data-import" },
+      { title: "Data Import", path: "/skills/data-import" },
     ],
   },
   {
@@ -86,5 +104,5 @@ export const APPS = [
       },
       { title: "App Name Page", path: "/app-path-2/page" },
     ],
-  },
+  }
 ];
