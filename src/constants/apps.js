@@ -32,7 +32,7 @@ export const APPS = [
     icon: appTaasIcon,
     path: "/taas",
     menu: [
-      { title: "My Teams", path: "/taas/myteam" },
+      { title: "My Teams", path: "/taas/myteams" },
       { title: "Feedback", path: "/taas/feedback" },
       { title: "Invoices", path: "/taas/invoices" },
       { title: "Reports", path: "/taas/reports" },
