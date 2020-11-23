@@ -3,7 +3,7 @@
  *
  * General component to show menu with submenu.
  */
-import React, { useCallback, useState } from "react";
+import React, { Fragment, useCallback, useState } from "react";
 import { useLocation } from "@reach/router";
 import cn from "classnames";
 import { includes, map } from "lodash";
@@ -52,18 +52,22 @@ const SubMenu = ({ option }) => {
   );
 };
 
-const Menu = ({ options }) => (
+const Menu = ({ options, sidebarCollapsed }) => (
   <ul className="menu">
     {options.map((option) => (
       <li key={option.path}>
         {option.path ? (
-          <NavLink
-            to={option.path}
-            activeClassName="menu-link-active"
-            className="menu-link"
-          >
-            {option.title}
-          </NavLink>
+          <Fragment>
+            <NavLink
+              to={option.path}
+              activeClassName="menu-link-active"
+              className="menu-link"
+            >
+              <img src={option.activeIcon} className="subroute-icon active-icon" alt="Subroute Icon"/>
+              <img src={option.icon} className="subroute-icon gray-icon" alt="Subroute Icon"/>
+              {!sidebarCollapsed ?  option.title : ''}
+            </NavLink>
+          </Fragment>
         ) : (
           <SubMenu option={option} />
         )}

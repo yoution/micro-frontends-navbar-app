@@ -3,42 +3,108 @@
  *
  * Shows global top navigation bar with all apps menu, logo and user menu.
  */
-import React from "react";
+import React, {useState, useCallback, Fragment} from "react";
 import UserMenu from "../UserMenu";
 import AllAppsMenu from "../AllAppsMenu";
 import { useSelector } from "react-redux";
-import { Link } from "@reach/router";
+import { Link, useLocation } from "@reach/router";
 import TCLogo from "../../assets/images/tc-logo.svg";
 import config from "../../../config";
 import "./styles.css";
+import { useMediaQuery } from "react-responsive";
+import NotificationsMenu from "../NotificationsMenu";
+import { useEffect } from "react";
+import { APPS } from '../../constants';
 
 const NavBar = () => {
+  // Active app
+  const [activeApp, setActiveApp] = useState(null);
   const auth = useSelector((state) => state.auth);
   const loginUrl = `${config.URL.AUTH}/member?retUrl=${encodeURIComponent(
     window.location.href.match(/[^?]*/)[0]
   )}`;
+  const isMobile = useMediaQuery({
+    query: "(max-width: 1023px)",
+  });
+  
+  const routerLocation = useLocation();
+  // Check app title with route activated
+  useEffect(() => {
+    const activeApp = APPS.find(f => routerLocation.pathname.indexOf(f.path) !== -1);
+    setActiveApp(activeApp);
+  }, [routerLocation])
+
+  // Change micro-app callback
+  const changeApp = useCallback((app) => {
+    setActiveApp(app);
+  }, [setActiveApp]);
 
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <AllAppsMenu />
+        {isMobile ? 
+          (
+          <AllAppsMenu/>
+          ) 
+          : 
+          (
+          <Fragment>
+            <Link to="/">
+              <img src={TCLogo} alt="Topcoder Logo" />
+            </Link>
+            <div className="navbar-divider"></div>
+            <div className="navbar-app-title">{activeApp ? activeApp.title : ''}</div>
+          </Fragment>
+          )
+        }
+        
       </div>
 
       <div className="navbar-center">
-        <Link to="/">
-          <img src={TCLogo} alt="Topcoder Logo" />
-        </Link>
+        {isMobile ? (
+          <Link to="/">
+            <img src={TCLogo} alt="Topcoder Logo" />
+          </Link>
+        ) : (<Fragment></Fragment>)}
       </div>
 
       <div className="navbar-right">
-        {auth.isInitialized &&
-          (auth.tokenV3 ? (
-            auth.profile && <UserMenu profile={auth.profile} />
-          ) : (
-            <a href={loginUrl} className="navbar-login">
-              Login
-            </a>
-          ))}
+        {isMobile ? (
+          <Fragment>
+            {auth.isInitialized &&
+              (auth.tokenV3 ? (
+                auth.profile && (
+                  <Fragment>
+                    <NotificationsMenu />
+                    <UserMenu profile={auth.profile} />
+                  </Fragment>
+                )
+              ) : (
+                <a href={loginUrl} className="navbar-login">
+                  Login
+                </a>
+              ))}
+          </Fragment>
+        ) : (
+          <Fragment>
+            <AllAppsMenu appChange={changeApp} />
+            <div className="navbar-divider"></div>
+            {auth.isInitialized &&
+              (auth.tokenV3 ? (
+                auth.profile && (
+                  <Fragment>
+                    <NotificationsMenu />
+                    <UserMenu profile={auth.profile} />
+                  </Fragment>
+                )
+              ) : (
+                <a href={loginUrl} className="navbar-login">
+                  Login
+                </a>
+              ))}
+          </Fragment>
+        )}
+        
       </div>
     </div>
   );

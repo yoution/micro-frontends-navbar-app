@@ -1,5 +1,5 @@
 :root {
-  --navbarHeight: 50px;
+  --navbarHeight: 60px;
 }
 
 /* This global style is necessary to completely hide the iframe injected into
@@ -11,7 +11,6 @@
 
 .main-menu-wrapper {
   background-color: #fff;
-  height: var(--navbarHeight);
 }
 
 @media (min-width: 1024px) {
@@ -20,6 +19,5 @@
     height: calc(100vh - var(--navbarHeight));
     position: absolute;
     top: var(--navbarHeight);
-    width: var(--mainMenuWidth);
   }
 }

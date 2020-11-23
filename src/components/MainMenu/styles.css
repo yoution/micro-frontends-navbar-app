@@ -1,23 +1,13 @@
 .main-menu-header {
-  border-bottom: 1px solid #e7e7e7;
-  margin: 0 20px 16px;
-  padding: 20px 0;
+  margin: 22px 0 20px 21px;
+}
+.menu-toggle-icon {
+  width: 10px;
+  height: 10px;
+  margin-left: 3px;
+  cursor: pointer;
 }
 
-.main-menu-logo {
-  height: 48px;
-  width: 48px;
-}
-
-.main-menu-title {
-  color: #333;
-  font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  margin: 10px 0 0 0;
-  outline: none;
-  padding: 0;
-}
 
 .main-menu-mobile {
   background-color: #fff;
@@ -25,6 +15,11 @@
   padding: 18px 0;
   position: absolute;
   width: 100%;
+}
+
+.hamburger-icon {
+  width: 19px;
+  margin-left: -2px;
 }
 
 .main-menu-mobile::before {
@@ -36,20 +31,30 @@
   top: 0;
 }
 
+.main-menu {
+  width: 270px;
+}
+.main-menu-collapsed {
+  width: auto;
+}
+
 @media (max-width: 1023px) {
   .main-menu {
     height: 50px;
     position: relative;
+    width: 100%;
   }
 
   .main-menu-header {
     align-items: center;
+    margin-top: 0;
     border-bottom: 0;
     display: flex;
     height: 50px;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 0;
-    padding: 0;
+    padding: 10px 20px;
+    margin-left: 0;
   }
 
   .main-menu-logo {
@@ -63,10 +68,16 @@
 
   .main-menu-title {
     margin-top: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #2a2a2a;
   }
 
   .main-menu-title::after {
-    background-image: url("../../assets/images/tick-down.svg");
+    background-image: url("../../assets/images/tick-down-green.svg");
     background-repeat: no-repeat;
     background-size: cover;
     content: "";
@@ -75,6 +86,9 @@
     margin-left: 5px;
     vertical-align: middle;
     width: 16px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
   }
 
   .main-menu-title-up::after {

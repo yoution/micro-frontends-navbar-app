@@ -1,8 +1,8 @@
 /**
  * Application Constants
  */
-import { APPS } from "./apps";
-export { APPS };
+import { APP_CATEGORIES, APPS } from "./apps";
+export { APP_CATEGORIES, APPS };
 
 export const ACTIONS = {
   AUTH: {
