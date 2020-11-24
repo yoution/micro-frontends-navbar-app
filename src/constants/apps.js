@@ -3,10 +3,13 @@
  */
 import appReactIcon from "../assets/images/reactjs.svg";
 import appAngularIcon from "../assets/images/angularjs.svg";
+import appTaasIcon from "../assets/images/integrations.svg";
 import manageWorkIcon from "../assets/images/managework.svg";
 import ondemandTalentIcon from "../assets/images/ondemand-talent.svg";
 import myOrganizationIcon from "../assets/images/my-organization.svg";
 import integrationsIcon from "../assets/images/integrations.svg";
+import customerplatformIcon from "../assets/images/managework.svg";
+import workmanagerIcon from "../assets/images/ondemand-talent.svg";
 import learnIcon from "../assets/images/learn.svg";
 import earnIcon from "../assets/images/earn.svg";
 import homeIcon from "../assets/images/home.svg";
@@ -52,6 +55,17 @@ export const APP_CATEGORIES = [
     category: 'Manage',
     apps: [
       {
+        title: "TaaS",
+        icon: appTaasIcon,
+        path: "/taas",
+        menu: [
+          { title: "My Teams", path: "/taas/myteams", icon: myteamsIcon, activeIcon:myteamsGreenIcon },
+          { title: "Feedback", path: "/taas/feedback", icon: discussionsIcon, activeIcon:discussionsGreenIcon },
+          { title: "Invoices", path: "/taas/invoices", icon: apisIcon, activeIcon:apisGreenIcon },
+          { title: "Reports", path: "/taas/reports", icon: reportsIcon, activeIcon: reportsGreenIcon },
+        ],
+      },
+      {
         title: "Manage Work",
         icon: manageWorkIcon,
         path: "/manage-work",
@@ -90,25 +104,25 @@ export const APP_CATEGORIES = [
       },
       {
         title: "Customer Platform",
-        icon: appReactIcon,
-        path: "/micro-frontends-react-route",
+        icon: customerplatformIcon,
+        path: "/customer-platform",
         menu: [
-          { title: "Catalog", path: "/micro-frontends-react-route", icon: homeIcon, activeIcon:homeGreenIcon },
-          { title: "My Work", path: "/micro-frontends-react-route/my-work", icon: apisIcon, activeIcon:apisGreenIcon },
-          { title: "Reports", path: "/micro-frontends-react-route/reports", icon: reportsIcon, activeIcon: reportsGreenIcon },
-          { title: "Testimonals", path: "/micro-frontends-react-route/testimonals", icon: testimonalsIcon, activeIcon: testimonalsGreenIcon },
-          { title: "FAQ", path: "/micro-frontends-react-route/FAQ", icon: faqIcon, activeIcon:faqGreenIcon },
+          { title: "Catalog", path: "/customer-platform", icon: homeIcon, activeIcon:homeGreenIcon },
+          { title: "My Work", path: "/customer-platform/my-work", icon: apisIcon, activeIcon:apisGreenIcon },
+          { title: "Reports", path: "/customer-platform/reports", icon: reportsIcon, activeIcon: reportsGreenIcon },
+          { title: "Testimonals", path: "/customer-platform/testimonals", icon: testimonalsIcon, activeIcon: testimonalsGreenIcon },
+          { title: "FAQ", path: "/customer-platform/FAQ", icon: faqIcon, activeIcon:faqGreenIcon },
         ],
       },
       {
         title: "Work Manager",
-        icon: appAngularIcon,
-        path: "/micro-frontends-angular-route",
+        icon: workmanagerIcon,
+        path: "/work-manager",
         menu: [
-          { title: "Challenges/Tasks", path: "/micro-frontends-angular-route", icon: homeIcon, activeIcon:homeGreenIcon },
-          { title: "Discussions", path: "/micro-frontends-angular-route/discussions", icon: discussionsIcon, activeIcon:discussionsGreenIcon },
-          { title: "Files & Links", path: "/micro-frontends-angular-route/files-links", icon: filesIcon, activeIcon:filesGreenIcon },
-          { title: "Reports", path: "/micro-frontends-angular-route/reports", icon: reportsIcon, activeIcon:reportsGreenIcon },
+          { title: "Challenges/Tasks", path: "/work-manager", icon: homeIcon, activeIcon:homeGreenIcon },
+          { title: "Discussions", path: "/work-manager/discussions", icon: discussionsIcon, activeIcon:discussionsGreenIcon },
+          { title: "Files & Links", path: "/work-manager/files-links", icon: filesIcon, activeIcon:filesGreenIcon },
+          { title: "Reports", path: "/work-manager/reports", icon: reportsIcon, activeIcon:reportsGreenIcon },
         ],
       },
     ]
@@ -134,6 +148,27 @@ export const APP_CATEGORIES = [
           { title: "Skill Builder", path: "/learn/skill-builder", icon: skillBuilderIcon, activeIcon: skillBuilderGreenIcon },
         ],
       }
+    ]
+  },
+  {
+    category: 'Sample',
+    apps: [
+      {
+        title: "React Example",
+        icon: appReactIcon,
+        path: "/micro-frontends-react-route",
+        menu: [
+          { title: "Home", path: "/micro-frontends-react-route", icon: homeIcon, activeIcon:homeGreenIcon },
+        ],
+      },
+      {
+        title: "Angular Example",
+        icon: appAngularIcon,
+        path: "/micro-frontends-angular-route",
+        menu: [
+          { title: "Home", path: "/micro-frontends-angular-route", icon: homeIcon, activeIcon:homeGreenIcon },
+        ],
+      },
     ]
   }
 ];
