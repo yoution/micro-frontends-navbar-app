@@ -8,10 +8,11 @@ import { Link } from "@reach/router";
 import cn from "classnames";
 import OutsideClickHandler from "react-outside-click-handler";
 import AllAppsMenuIcon from "../../assets/images/all-apps-menu.svg";
-import { APP_CATEGORIES } from "../../constants";
 import "./styles.css";
+import { useSelector } from "react-redux";
 
 const AllAppsMenu = () => {
+  const menu = useSelector((state) => state.menu);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const closeMenu = useCallback(() => {
@@ -41,7 +42,7 @@ const AllAppsMenu = () => {
             <div className="all-apps-menu-popover-content">
               <div className="all-apps-menu-list-title">SWITCH TOOLS</div>
               <ul className="all-apps-menu-list">
-                {APP_CATEGORIES.map((appCategory) => (
+                {menu.map((appCategory) => (
                   <Fragment>
                     <div className="switch-category-title">
                       <div className="menu-divider"></div>

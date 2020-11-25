@@ -1,12 +1,22 @@
 /**
  * Adapt this React app to be run a single spa microapp.
+ *
+ * This file list everything we export to be used by other microapps.
  */
 import "./set-public-path";
+import _ from "lodash";
 import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import Root from "./root.component";
 import "./global.css?modules=false";
+import {
+  setAppMenu,
+  getAuthUserTokens,
+  getAuthUserProfile,
+} from "./utils/exports";
+
+import { login, logout } from "./utils";
 
 const lifecycles = singleSpaReact({
   React,
@@ -19,3 +29,6 @@ const lifecycles = singleSpaReact({
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;
+
+// list everything we want to export for other microapps here
+export { login, logout, setAppMenu, getAuthUserTokens, getAuthUserProfile };

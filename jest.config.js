@@ -3,7 +3,7 @@ module.exports = {
   transform: {
     "^.+\\.(j|t)sx?$": "babel-jest",
   },
-  transformIgnorePatterns: ["node_modules/?!(tc-accounts)"],
+  transformIgnorePatterns: ["node_modules/?!(tc-auth-lib)"],
   moduleNameMapper: {
     "\\.css$": "identity-obj-proxy",
     "\\.svg$": "<rootDir>/__mocks__/fileMock.js",
