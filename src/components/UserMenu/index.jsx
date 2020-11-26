@@ -27,7 +27,7 @@ const UserMenu = ({ profile }) => {
   }, [isOpenMenu, setIsOpenMenu]);
 
   const logoutUrl = `${config.URL.AUTH}/logout?retUrl=${encodeURIComponent(
-    "https:// " + window.location.host
+    "https://" + window.location.host
   )}`;
 
   return (
