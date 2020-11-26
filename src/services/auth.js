@@ -2,7 +2,7 @@
  * Auth service which handles user authorization and basic profile loading.
  */
 import cookies from "browser-cookies";
-import { configureConnector, decodeToken, getFreshToken } from "tc-accounts";
+import { configureConnector, decodeToken, getFreshToken } from "tc-auth-lib";
 import config from "../../config";
 import actions from "../actions";
 
