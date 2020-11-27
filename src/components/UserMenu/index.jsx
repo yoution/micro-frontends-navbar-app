@@ -25,7 +25,7 @@ const UserMenu = ({ profile }) => {
   const toggleMenu = useCallback(() => {
     setIsOpenMenu(!isOpenMenu);
   }, [isOpenMenu, setIsOpenMenu]);
-
+  
   const onLogoutClick = useCallback((evt) => {
     evt.preventDefault();
     logout();
