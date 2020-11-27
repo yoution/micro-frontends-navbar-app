@@ -1,11 +1,28 @@
+/* global process */
 /**
  * Configure Redux Store
  */
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { authenticate } from "./services/auth";
 
-const store = createStore(rootReducer);
+const middleware = [];
+// enable Redux Logger in in DEV environment
+if (process.env.NODE_ENV === "development") {
+  const { createLogger } = require("redux-logger");
+  const logger = createLogger();
+  middleware.push(logger);
+}
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : (f) => f
+  )
+);
 
 authenticate(store);
 

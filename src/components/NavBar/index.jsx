@@ -3,34 +3,34 @@
  *
  * Shows global top navigation bar with all apps menu, logo and user menu.
  */
-import React, {useState, useCallback, Fragment} from "react";
+import React, {useState, useCallback, Fragment, useEffect, useMemo} from "react";
+import _ from 'lodash';
 import UserMenu from "../UserMenu";
 import AllAppsMenu from "../AllAppsMenu";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "@reach/router";
 import TCLogo from "../../assets/images/tc-logo.svg";
-import config from "../../../config";
+import { getLoginUrl } from "../../utils";
 import "./styles.css";
 import { useMediaQuery } from "react-responsive";
 import NotificationsMenu from "../NotificationsMenu";
-import { useEffect } from "react";
-import { APPS } from '../../constants';
 
 const NavBar = () => {
+  // all menu options
+  const menu = useSelector((state) => state.menu);
+  // flat list of all apps
+  const apps = useMemo(() => _.flatMap(menu, "apps"), [menu]);
   // Active app
   const [activeApp, setActiveApp] = useState(null);
   const auth = useSelector((state) => state.auth);
-  const loginUrl = `${config.URL.AUTH}/member?retUrl=${encodeURIComponent(
-    window.location.href.match(/[^?]*/)[0]
-  )}`;
   const isMobile = useMediaQuery({
     query: "(max-width: 1023px)",
   });
-  
+
   const routerLocation = useLocation();
   // Check app title with route activated
   useEffect(() => {
-    const activeApp = APPS.find(f => routerLocation.pathname.indexOf(f.path) !== -1);
+    const activeApp = apps.find(f => routerLocation.pathname.indexOf(f.path) !== -1);
     setActiveApp(activeApp);
   }, [routerLocation])
 
@@ -42,11 +42,11 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        {isMobile ? 
+        {isMobile ?
           (
           <AllAppsMenu/>
-          ) 
-          : 
+          )
+          :
           (
           <Fragment>
             <Link to="/">
@@ -57,7 +57,7 @@ const NavBar = () => {
           </Fragment>
           )
         }
-        
+
       </div>
 
       <div className="navbar-center">
@@ -80,7 +80,7 @@ const NavBar = () => {
                   </Fragment>
                 )
               ) : (
-                <a href={loginUrl} className="navbar-login">
+                <a href={getLoginUrl()} className="navbar-login">
                   Login
                 </a>
               ))}
@@ -98,13 +98,13 @@ const NavBar = () => {
                   </Fragment>
                 )
               ) : (
-                <a href={loginUrl} className="navbar-login">
+                <a href={getLoginUrl()} className="navbar-login">
                   Login
                 </a>
               ))}
           </Fragment>
         )}
-        
+
       </div>
     </div>
   );

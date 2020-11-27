@@ -95,12 +95,16 @@ export function authenticate(store) {
       const { auth } = store.getState();
 
       if (auth.tokenV3 !== (tctV3 || null)) {
-        loadProfile(tctV3).then((profile) => {
-          if (profile) {
-            store.dispatch(actions.auth.loadProfile(profile));
-          }
-        });
+        loadProfile(tctV3)
+          // even if error happens, call `loadProfile` action and set profile as `null`
+          .catch(() => null)
+          .then((profile) => {
+            store.dispatch(actions.auth.loadProfile(profile || null));
+          });
         store.dispatch(actions.auth.setTcTokenV3(tctV3));
+      } else {
+        // if we don't have V3 token, still mark profile as loaded to `null`
+        store.dispatch(actions.auth.loadProfile(null));
       }
 
       if (auth.tokenV2 !== (tctV2 || null)) {

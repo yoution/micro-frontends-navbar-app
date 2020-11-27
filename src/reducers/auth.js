@@ -5,6 +5,7 @@ import { ACTIONS } from "../constants";
 
 const initialState = {
   isInitialized: false,
+  isProfileLoaded: false,
   tokenV2: null,
   tokenV3: null,
   profile: null,
@@ -26,6 +27,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: action.payload,
+        isProfileLoaded: true,
       };
     case ACTIONS.AUTH.SET_INITIALIZED:
       return {

@@ -7,7 +7,7 @@ import React, { useState, useCallback, Fragment } from "react";
 import Avatar from "../Avatar";
 import cn from "classnames";
 import OutsideClickHandler from "react-outside-click-handler";
-import config from "../../../config";
+import { logout, getLogoutUrl } from "../../utils";
 import "./styles.css";
 import { useMediaQuery } from "react-responsive";
 
@@ -17,7 +17,7 @@ const UserMenu = ({ profile }) => {
   const closeMenu = useCallback(() => {
     setIsOpenMenu(false);
   }, [setIsOpenMenu]);
-  
+
   const isMobile = useMediaQuery({
     query: "(max-width: 1023px)",
   });
@@ -25,10 +25,11 @@ const UserMenu = ({ profile }) => {
   const toggleMenu = useCallback(() => {
     setIsOpenMenu(!isOpenMenu);
   }, [isOpenMenu, setIsOpenMenu]);
-
-  const logoutUrl = `${config.URL.AUTH}/logout?retUrl=${encodeURIComponent(
-    "https://" + window.location.host
-  )}`;
+  
+  const onLogoutClick = useCallback((evt) => {
+    evt.preventDefault();
+    logout();
+  }, []);
 
   return (
     <OutsideClickHandler onOutsideClick={closeMenu}>
@@ -43,7 +44,7 @@ const UserMenu = ({ profile }) => {
         >
           <Avatar profile={profile} />
           {isMobile ? (<Fragment></Fragment>) : (<div className="user-menu-handle">{profile.handle}</div>) }
-          
+
         </div>
 
         {isOpenMenu && (
@@ -59,7 +60,7 @@ const UserMenu = ({ profile }) => {
               <div className="user-menu-popover-content">
                 <ul className="user-menu-list">
                   <li>
-                    <a href={logoutUrl}>Log Out</a>
+                    <a href={getLogoutUrl()} onClick={onLogoutClick}>Log Out</a>
                   </li>
                 </ul>
               </div>
