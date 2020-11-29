@@ -1,13 +1,23 @@
+/* this style controls the sidebar,
+   but it also has to set the margin for the main content of the main frame */
+#single-spa-main {
+  margin-left: 0;
+}
+
+.main-menu-wrapper {
+  background-color: #fff;
+}
+
 .main-menu-header {
   margin: 22px 0 20px 21px;
 }
+
 .menu-toggle-icon {
   width: 10px;
   height: 10px;
   margin-left: 3px;
   cursor: pointer;
 }
-
 
 .main-menu-mobile {
   background-color: #fff;
@@ -32,8 +42,9 @@
 }
 
 .main-menu {
-  width: 270px;
+  width: var(--sideBarWidth);
 }
+
 .main-menu-collapsed {
   width: auto;
 }
@@ -93,5 +104,25 @@
 
   .main-menu-title-up::after {
     transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* this style controls the sidebar,
+     but it also has to set the margin for the main content of the main frame */
+  #single-spa-main {
+    margin-left: var(--sideBarWidth);
+  }
+
+  /* if sidebar is disabled, then remove margin for the main content */
+  body.no-sidebar #single-spa-main {
+    margin-left: 0;
+  }
+
+  .main-menu-wrapper {
+    left: 0;
+    height: calc(100vh - var(--navbarHeight));
+    position: absolute;
+    top: var(--navbarHeight);
   }
 }

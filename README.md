@@ -64,6 +64,8 @@ This app exports functions to be imported by other microapps.
 - `setAppMenu` - sets sidebar menu for the app by app's `path`
 - `getAuthUserTokens` - returns a promise which resolves to object with user tokens `{ tokenV3, tokenV2 }`
 - `getAuthUserProfile` - returns a promise which resolves to the user profile object
+- `disableSidebarForRoute` - disable (remove) sidebar for some route
+- `enableSidebarForRoute` - enable sidebar for the route, which was previously disabled
 
 #### How to export
 
@@ -89,13 +91,15 @@ For example see https://github.com/topcoder-platform/micro-frontends-react-app
 
 2. As `importmaps` only work in browser and don't work in unit test, we have to mock this module in unit tests. For example by creating a file `src/__mocks__/@topcoder/micro-frontends-navbar-app.js` with the content like:
    ```js
-    module.exports = {
+   module.exports = {
       login: () => {},
       logout: () => {},
       setAppMenu: () => {},
       getAuthUserTokens: () => new Promise(() => {}),
       getAuthUserProfile: () => new Promise(() => {}),
-    };
+      disableSidebarForRoute: () => {},
+      enableSidebarForRoute: () => {},
+   };
    ```
 
 ##### How to import in Angular app
@@ -112,11 +116,13 @@ For example see https://github.com/topcoder-platform/micro-frontends-angular-app
 2. Add type definition in `src/typings.d.ts`:
    ```js
    declare module '@topcoder/micro-frontends-navbar-app' {
-    export const login: any;
-    export const logout: any;
-    export const setAppMenu: any;
-    export const getAuthUserTokens: any;
-    export const getAuthUserProfile: any;
+     export const login: any;
+     export const logout: any;
+     export const setAppMenu: any;
+     export const getAuthUserTokens: any;
+     export const getAuthUserProfile: any;
+     export const disableSidebarForRoute: any;
+     export const enableSidebarForRoute: any;
   }
    ```
 

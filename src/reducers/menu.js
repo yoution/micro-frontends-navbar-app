@@ -5,9 +5,12 @@ import _ from "lodash";
 import { ACTIONS, APP_CATEGORIES } from "../constants";
 
 /**
- * Default Apps Menu structure.
+ * Menu State Initial Structure
  */
-const initialState = APP_CATEGORIES;
+const initialState = {
+  categories: APP_CATEGORIES, // Default Apps Menu structure.
+  disabledRoutes: [],
+};
 
 /**
  * Find indexes of the category and app in the menu structure by the app's path.
@@ -78,7 +81,10 @@ const menuReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.MENU.SET_APP_MENU: {
       const { path, menuOptions } = action.payload;
-      const { categoryIndex, appIndex } = findIndexByPath(state, path);
+      const { categoryIndex, appIndex } = findIndexByPath(
+        state.categories,
+        path
+      );
 
       // if we cannot find the app, just log error and don't try to update it
       if (categoryIndex === -1 || appIndex === -1) {
@@ -86,11 +92,46 @@ const menuReducer = (state = initialState, action) => {
         return state;
       }
 
-      return updateApp(state, categoryIndex, appIndex, (app) => ({
-        ...app,
-        menu: menuOptions,
-      }));
+      return {
+        ...state,
+        categories: updateApp(
+          state.categories,
+          categoryIndex,
+          appIndex,
+          (app) => ({
+            ...app,
+            menu: menuOptions,
+          })
+        ),
+      };
     }
+
+    case ACTIONS.MENU.DISABLE_SIDEBAR_FOR_ROUTE: {
+      // if route is already disabled, don't do anything
+      if (state.disabledRoutes.indexOf(action.payload) > -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        // add route to the disabled list
+        disabledRoutes: [...state.disabledRoutes, action.payload],
+      };
+    }
+
+    case ACTIONS.MENU.ENABLE_SIDEBAR_FOR_ROUTE: {
+      // if route is not disabled, don't do anything
+      if (state.disabledRoutes.indexOf(action.payload) === -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        // remove the route from the disabled list
+        disabledRoutes: _.without(state.disabledRoutes, action.payload),
+      };
+    }
+
     default:
       return state;
   }
