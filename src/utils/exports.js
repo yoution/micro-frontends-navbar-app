@@ -9,9 +9,15 @@ import store from "../store";
 import menuActions from "../actions/menu";
 
 // bind all the actions for exporting here
-export const { setAppMenu } = bindActionCreators(
+export const {
+  setAppMenu,
+  disableSidebarForRoute,
+  enableSidebarForRoute,
+} = bindActionCreators(
   {
     setAppMenu: menuActions.setAppMenu,
+    disableSidebarForRoute: menuActions.disableSidebarForRoute,
+    enableSidebarForRoute: menuActions.enableSidebarForRoute,
   },
   store.dispatch
 );

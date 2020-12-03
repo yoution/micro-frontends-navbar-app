@@ -17,7 +17,7 @@ import NotificationsMenu from "../NotificationsMenu";
 
 const NavBar = () => {
   // all menu options
-  const menu = useSelector((state) => state.menu);
+  const menu = useSelector((state) => state.menu.categories);
   // flat list of all apps
   const apps = useMemo(() => _.flatMap(menu, "apps"), [menu]);
   // Active app

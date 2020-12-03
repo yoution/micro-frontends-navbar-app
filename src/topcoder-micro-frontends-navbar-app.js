@@ -12,6 +12,8 @@ import Root from "./root.component";
 import "./global.css?modules=false";
 import {
   setAppMenu,
+  disableSidebarForRoute,
+  enableSidebarForRoute,
   getAuthUserTokens,
   getAuthUserProfile,
 } from "./utils/exports";
@@ -31,4 +33,12 @@ const lifecycles = singleSpaReact({
 export const { bootstrap, mount, unmount } = lifecycles;
 
 // list everything we want to export for other microapps here
-export { login, logout, setAppMenu, getAuthUserTokens, getAuthUserProfile };
+export {
+  login,
+  logout,
+  setAppMenu,
+  getAuthUserTokens,
+  getAuthUserProfile,
+  disableSidebarForRoute,
+  enableSidebarForRoute,
+};

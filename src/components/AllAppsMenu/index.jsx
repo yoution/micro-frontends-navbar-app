@@ -12,7 +12,7 @@ import "./styles.css";
 import { useSelector } from "react-redux";
 
 const AllAppsMenu = () => {
-  const menu = useSelector((state) => state.menu);
+  const menu = useSelector((state) => state.menu.categories);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const closeMenu = useCallback(() => {
