@@ -278,6 +278,12 @@ export const APP_CATEGORIES = [
           },
         ],
       },
+      {
+        title: "Tasks",
+        icon: manageWorkIcon,
+        path: "/task-marketplace",
+        menu: [],
+      },
     ],
   },
   {
