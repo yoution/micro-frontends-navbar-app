@@ -244,20 +244,7 @@ export const APP_CATEGORIES = [
         title: "Earn",
         icon: earnIcon,
         path: "/earn",
-        menu: [
-          {
-            title: "My Work",
-            path: "/earn",
-            icon: myWorkIcon,
-            activeIcon: myWorkGreenIcon,
-          },
-          {
-            title: "Find Work",
-            path: "/earn/find",
-            icon: findWorkIcon,
-            activeIcon: findWorkGreenIcon,
-          },
-        ],
+        menu: [],
       },
       {
         title: "Learn",
