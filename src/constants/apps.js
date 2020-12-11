@@ -57,31 +57,13 @@ export const APP_CATEGORIES = [
       {
         title: "TaaS",
         icon: appTaasIcon,
-        path: "/taas",
+        path: "/taas/myteams",
         menu: [
           {
             title: "My Teams",
             path: "/taas/myteams",
             icon: myteamsIcon,
             activeIcon: myteamsGreenIcon,
-          },
-          {
-            title: "Feedback",
-            path: "/taas/feedback",
-            icon: discussionsIcon,
-            activeIcon: discussionsGreenIcon,
-          },
-          {
-            title: "Invoices",
-            path: "/taas/invoices",
-            icon: apisIcon,
-            activeIcon: apisGreenIcon,
-          },
-          {
-            title: "Reports",
-            path: "/taas/reports",
-            icon: reportsIcon,
-            activeIcon: reportsGreenIcon,
           },
         ],
       },
