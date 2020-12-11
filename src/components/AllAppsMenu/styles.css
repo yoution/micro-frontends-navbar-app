@@ -9,8 +9,7 @@
   display: flex;
   border-radius: 16px;
   height: 32px;
-  margin-left: -8px;
-  padding: 0 10px 0 8px;
+  padding: 4px;
 }
 
 .all-apps-menu-handler-active,
@@ -35,23 +34,58 @@
 }
 
 .all-apps-menu-list-title {
-  font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-family: 'Barlow Condensed', sans-serif !important;
   font-weight: 500;
-  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 15px;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+.switch-category-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 24px;
+  margin-bottom: 0;
+  font-size: 11px;
+}
+
+.menu-divider {
+  flex-grow: 1;
+  width: auto;
+  height: 1px;
+  background: #f4f4f4;
+  margin-bottom: -2px;
+}
+
+.menu-divider:last-child {
+  margin-left: 6px;
+}
+
+.menu-divider:first-child {
+  margin-right: 6px;
+}
+
+.all-apps-menu-category-name {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+  color: #2a2a2a;
 }
 
 .all-apps-menu-list {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .all-apps-menu-list > li {
   list-style: none;
-}
-
-.all-apps-menu-list > li + li {
-  margin-top: 10px;
+  height: 64px;
 }
 
 .all-apps-menu-list > li > a {
@@ -60,90 +94,127 @@
   color: #333333;
   display: flex;
   font-size: 14px;
-  height: 40px;
-  margin: 0 -4px;
-  padding: 0 4px;
   position: relative;
   text-decoration: none;
+  text-align: center;
+}
+
+.all-apps-menu-list > li > a > span {
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 15px;
+  text-align: center;
+  color: #2a2a2a;
+  margin-top: 8px;
 }
 
 .all-apps-menu-list > li > a:hover {
   background-color: #f4f5f8;
 }
 
-.all-apps-menu-list > li > a:hover::after {
-  content: "";
-  background-image: url("../../assets/images/arrow-right.svg");
-  height: 16px;
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  width: 16px;
-}
-
 .all-apps-menu-list > li > a > img {
-  margin-right: 10px;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
 }
 
 .all-apps-menu-popover {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 10px 50px #00000029;
-  left: -4px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  left: -85px;
   position: absolute;
-  top: 41px;
-  width: 286px;
+  top: 37px;
+  width: 200px;
   z-index: 1000;
 }
 
-.all-apps-menu-popover-arrow {
-  border-style: solid;
-  border-width: 0 6px 6px 6px;
-  border-color: transparent transparent #fff transparent;
-  height: 0;
-  left: 10px;
-  top: -6px;
-  position: absolute;
-  width: 0;
+.all-apps-menu-popover-content {
+  padding: 17px 0;
 }
 
-.all-apps-menu-popover-content {
-  padding: 20px;
+.all-apps-menu-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 15px;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+.all-apps-menu-app {
+  width: 50%;
+  margin-top: 16px;
+}
+
+.all-apps-menu-app a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (max-width: 1023px) {
-  .all-apps-menu-popover-arrow {
-    display: none;
+
+  .all-apps-menu-category-name {
+    font-size: 15px;
+  }
+  
+  .switch-category-title {
+    margin: 12px 24px;
+    font-size: 15px;
   }
 
-  .all-apps-menu-popover-wrapper {
-    align-items: center;
-    background-color: #00000080;
-    display: flex;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
-    position: fixed;
+  .all-apps-menu-title {
+    font-size: 24px;
+  }
+
+  .all-apps-menu-app {
     width: 100%;
-    z-index: 2000;
+    margin: 0;
   }
 
-  .all-apps-menu-popover-overlay {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    top: 0;
+  .all-apps-menu-popover-content {
+    padding: 0;
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+  .all-apps-menu-list > li  {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  .all-apps-menu-list > li > a {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+  }
+  .all-apps-menu-list > li > a > span {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .all-apps-menu-list > li {
+    margin-bottom: 5px;
+  }
+
+  .all-apps-menu-list > li > a {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .all-apps-menu-list > li > a > img {
+    height: 30px;
+    width: 30px;
+    margin-right: 14px;
+  }
+
+
+  .all-apps-menu-list-title {
+    font-size: 24px;
+    margin-bottom: 8px;
   }
 
   .all-apps-menu-popover {
-    left: 0;
-    top: 0;
-    position: relative;
+    left: 5px;
+    top: 40px;
+    position: absolute;
+    width: 250px;
   }
 }

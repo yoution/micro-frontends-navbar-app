@@ -1,8 +1,8 @@
 /**
  * Application Constants
  */
-import { APPS } from "./apps";
-export { APPS };
+import { APP_CATEGORIES } from "./apps";
+export { APP_CATEGORIES };
 
 export const ACTIONS = {
   AUTH: {
@@ -10,5 +10,10 @@ export const ACTIONS = {
     SET_TOKEN_V3: "SET_TOKEN_V3",
     SET_TOKEN_V2: "SET_TOKEN_V2",
     SET_INITIALIZED: "SET_INITIALIZED",
+  },
+  MENU: {
+    SET_APP_MENU: "SET_APP_MENU",
+    DISABLE_SIDEBAR_FOR_ROUTE: "DISABLE_SIDEBAR_FOR_ROUTE",
+    ENABLE_SIDEBAR_FOR_ROUTE: "ENABLE_SIDEBAR_FOR_ROUTE",
   },
 };

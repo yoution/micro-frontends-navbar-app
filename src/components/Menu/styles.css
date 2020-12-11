@@ -30,8 +30,26 @@
   height: 24px;
   line-height: 24px;
   outline: none;
-  padding-left: 21px;
+  padding-left: 16px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.menu-link > .subroute-icon {
+  margin-right: 20px;
+}
+.menu-link > .active-icon {
+  display: none;
+}
+.menu-link.menu-link-active > .active-icon {
+  display: flex;
+}
+
+.menu-link.menu-link-active > .gray-icon {
+  display: none;
+}
+.menu-link > .gray-icon {
+  display: flex;
 }
 
 .menu-link-active {
@@ -52,7 +70,7 @@
 }
 
 .menu-link-toggle::after {
-  background-image: url("../../assets/images/tick-down.svg");
+  background-image: url("../../assets/images/tick-down-green.svg");
   content: "";
   display: inline-block;
   height: 12px;

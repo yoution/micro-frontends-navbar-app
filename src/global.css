@@ -1,5 +1,6 @@
 :root {
-  --navbarHeight: 50px;
+  --navbarHeight: 60px;
+  --sideBarWidth: 270px;
 }
 
 /* This global style is necessary to completely hide the iframe injected into
@@ -7,19 +8,4 @@
 #tc-accounts-iframe {
   border: none;
   display: none;
-}
-
-.main-menu-wrapper {
-  background-color: #fff;
-  height: var(--navbarHeight);
-}
-
-@media (min-width: 1024px) {
-  .main-menu-wrapper {
-    left: 0;
-    height: calc(100vh - var(--navbarHeight));
-    position: absolute;
-    top: var(--navbarHeight);
-    width: var(--mainMenuWidth);
-  }
 }
