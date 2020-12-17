@@ -4,6 +4,7 @@
 import appReactIcon from "../assets/images/reactjs.svg";
 import appAngularIcon from "../assets/images/angularjs.svg";
 import appTaasIcon from "../assets/images/integrations.svg";
+import appSubmissionReviewIcon from "../assets/images/integrations.svg";
 import manageWorkIcon from "../assets/images/managework.svg";
 import ondemandTalentIcon from "../assets/images/ondemand-talent.svg";
 import myOrganizationIcon from "../assets/images/my-organization.svg";
@@ -66,6 +67,12 @@ export const APP_CATEGORIES = [
             activeIcon: myteamsGreenIcon,
           },
         ],
+      },
+      {
+        title: "Submission Review",
+        icon: appSubmissionReviewIcon,
+        path: "/submissions",
+        menu: [],
       },
       {
         title: "Manage Work",
