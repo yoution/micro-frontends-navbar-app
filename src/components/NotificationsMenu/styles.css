@@ -7,27 +7,3 @@
     align-items: center;
     justify-content: center;
 }
-.notifications-number-container {
-    position: absolute;
-    right: -8px;
-    top: -3px;
-    border-radius: 120px;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #E90C5A;
-}
-
-.notifications-number {
-    font-weight: bold;
-    font-size: 11px;
-    line-height: 16px;
-    text-align: center;
-    color: #fff;
-}
-
-.notifications-icon {
-    width: 16px;
-}
