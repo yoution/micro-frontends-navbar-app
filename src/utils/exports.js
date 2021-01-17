@@ -7,17 +7,20 @@ import _ from "lodash";
 import { bindActionCreators } from "redux";
 import store from "../store";
 import menuActions from "../actions/menu";
+import notificationActions from "../actions/notifications";
 
 // bind all the actions for exporting here
 export const {
   setAppMenu,
   disableSidebarForRoute,
   enableSidebarForRoute,
+  setNotificationPlatform,
 } = bindActionCreators(
   {
     setAppMenu: menuActions.setAppMenu,
     disableSidebarForRoute: menuActions.disableSidebarForRoute,
     enableSidebarForRoute: menuActions.enableSidebarForRoute,
+    setNotificationPlatform: notificationActions.setNotificationPlatform,
   },
   store.dispatch
 );

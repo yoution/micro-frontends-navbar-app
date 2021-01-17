@@ -16,9 +16,11 @@ import {
   enableSidebarForRoute,
   getAuthUserTokens,
   getAuthUserProfile,
+  setNotificationPlatform,
 } from "./utils/exports";
 
 import { login, logout } from "./utils";
+import { PLATFORM } from "./constants/notifications";
 
 const lifecycles = singleSpaReact({
   React,
@@ -41,4 +43,6 @@ export {
   getAuthUserProfile,
   disableSidebarForRoute,
   enableSidebarForRoute,
+  setNotificationPlatform,
+  PLATFORM,
 };

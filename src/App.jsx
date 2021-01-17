@@ -8,6 +8,8 @@ import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
 import { useSelector } from "react-redux";
 import useMatchSomeRoute from "./hooks/useMatchSomeRoute";
+import NotificationsModal from './components/NotificationsModal'
+import "./styles/main.module.scss";
 
 const App = () => {
   // all menu options
@@ -24,6 +26,11 @@ const App = () => {
   const toggleSidebar = useCallback(() => {
     setSidebarCollapsed(!sidebarCollapsed);
   }, [sidebarCollapsed, setSidebarCollapsed]);
+  const isNotificationsEmpty = useSelector((state) =>
+    state.notifications.isLoading ||
+    state.notifications.isCommunityLoading ||
+    !state.notifications.initialized && !state.notifications.communityInitialized
+  );
 
   // set/remove class for the whole page, to know if sidebar is present or no
   useEffect(() => {
@@ -52,6 +59,12 @@ const App = () => {
           </Router>
         </div>
       )}
+      <Router>
+        <NotificationsModal
+          path="notifications"
+          isEmpty={isNotificationsEmpty}
+        />
+      </Router>
     </>
   );
 };

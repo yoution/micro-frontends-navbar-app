@@ -5,8 +5,9 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { authenticate } from "./services/auth";
+import thunk from "redux-thunk";
 
-const middleware = [];
+const middleware = [thunk];
 // enable Redux Logger in in DEV environment
 if (process.env.NODE_ENV === "development") {
   const { createLogger } = require("redux-logger");

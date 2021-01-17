@@ -66,6 +66,7 @@ const NavBar = () => {
             <img src={TCLogo} alt="Topcoder Logo" />
           </Link>
         ) : (<Fragment></Fragment>)}
+        {process.env.NODE_ENV === 'test' && <h3 style={{display: 'none'}}>Navbar App Test</h3>}
       </div>
 
       <div className="navbar-right">
