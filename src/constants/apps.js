@@ -277,6 +277,12 @@ export const APP_CATEGORIES = [
         path: "/micro-frontends-angular-route",
         menu: [],
       },
+      {
+        title: "Model",
+        icon: appReactIcon,
+        path: "/model",
+        menu: [],
+      },
     ],
   },
 ];
