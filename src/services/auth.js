@@ -64,22 +64,18 @@ const loadProfile = (userTokenV3) => {
     .then((res) => (res.result.status === 200 ? res.result.content : {}));
 };
 
+configureConnector({
+  connectorUrl: config.URL.ACCOUNTS_APP_CONNECTOR,
+  frameId: "tc-accounts-iframe",
+  frameTitle: "Accounts authentication window",
+});
+
 /**
  * Uses Topcoder accounts-app to fetch / refresh authentication tokens.
  * Results will be storted in the Redux store, inside state.auth.
  * @param {Object} store Redux store.
  */
-let firstAuth = true;
 export function authenticate(store) {
-  if (firstAuth) {
-    firstAuth = false;
-    configureConnector({
-      connectorUrl: config.URL.ACCOUNTS_APP_CONNECTOR,
-      frameId: "tc-accounts-iframe",
-      frameTitle: "Accounts authentication window",
-    });
-  }
-
   getFreshToken()
     .then((tctV3) => {
       const tctV2 = cookies.get("tcjwt");
@@ -122,7 +118,7 @@ export function authenticate(store) {
       if (tctV2) time = decodeToken(tctV2).exp;
       if (userV3) time = Math.min(time, userV3.exp);
       if (time < Number.MAX_VALUE) {
-        time = 1000 * (time - config.REAUTH_TIME);
+        time = 1000 * (time - config.REAUTH_OFFSET);
         time = Math.max(0, time - Date.now());
         logger.log("Reauth scheduled in", time / 1000, "seconds");
         setTimeout(() => authenticate(store), time);

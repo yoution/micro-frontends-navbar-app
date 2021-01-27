@@ -5,7 +5,7 @@ module.exports = {
   },
   transformIgnorePatterns: ["node_modules/?!(tc-auth-lib)"],
   moduleNameMapper: {
-    "\\.css$": "identity-obj-proxy",
+    "\\.(css|scss)$": "identity-obj-proxy",
     "\\.svg$": "<rootDir>/__mocks__/fileMock.js",
   },
   setupFilesAfterEnv: [

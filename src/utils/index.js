@@ -5,7 +5,7 @@ import config from "../../config";
  */
 export const getLogoutUrl = () =>
   `${config.URL.AUTH}/?logout=true&retUrl=${encodeURIComponent(
-    window.location.href.match(/[^?]*/)[0]
+    "https://" + window.location.host
   )}`;
 
 /**

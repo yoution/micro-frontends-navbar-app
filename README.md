@@ -12,7 +12,7 @@ This is a [single-spa](https://single-spa.js.org/) microapp which shows the main
 ## Config
 
 There are 2 config file for production and development environment in the `config` folder.
-Set environment variable `NODE_ENV=development` to use development config, or `NODE_ENV=production` to use production config.
+Set environment variable `APPENV=dev` to use development config, or `APPENV=prod` to use production config.
 
 ## NPM Commands
 

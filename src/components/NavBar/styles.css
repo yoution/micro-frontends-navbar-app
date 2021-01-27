@@ -6,6 +6,8 @@
   justify-content: space-between;
   padding: 0 24px;
   padding-right: 16px;
+  position: relative;
+  z-index: 1;
 }
 .navbar-left  {
   display: flex;
@@ -44,7 +46,7 @@
 .navbar-right .navbar-divider {
   margin: 0 15px;
 }
-.navbar-login {
+.navbar-right .navbar-login {
   color: #fff;
   font-size: 14px;
   font-weight: bold;

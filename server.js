@@ -20,6 +20,6 @@ app.get('/', function (req, res) {
   res.send('alive')
 })
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, '0.0.0.0');
 console.log(`App is hosted on port ${PORT}.`); // eslint-disable-line no-console
