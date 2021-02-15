@@ -8,7 +8,9 @@
   padding-right: 16px;
   position: relative;
   z-index: 1;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
+
 .navbar-left  {
   display: flex;
   flex-direction: row;
