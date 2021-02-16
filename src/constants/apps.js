@@ -278,7 +278,7 @@ export const APP_CATEGORIES = [
         menu: [],
       },
       {
-        title: "Model",
+        title: "Documentation",
         icon: appReactIcon,
         path: "/model",
         menu: [],
