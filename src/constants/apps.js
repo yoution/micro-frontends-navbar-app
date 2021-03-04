@@ -31,6 +31,12 @@ export const APP_CATEGORIES = [
         icon: appDocumentationIcon,
         path: "/model",
         menu: []
+      },
+      {
+        title: "Community Admin",
+        icon: myteamsIcon,
+        path: "/community-admin",
+        menu: []
       }
     ]
   }
