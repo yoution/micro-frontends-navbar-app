@@ -5,6 +5,7 @@ import appDocumentationIcon from "../assets/images/learn.svg";
 import appTaasIcon from "../assets/images/integrations.svg";
 import myteamsIcon from "../assets/images/my-teams.svg";
 import myteamsGreenIcon from "../assets/images/my-teams-green.svg";
+import earnIcon from "../assets/images/earn.svg";
 
 /**
  * Micro-app categories
@@ -31,6 +32,17 @@ export const APP_CATEGORIES = [
         icon: appDocumentationIcon,
         path: "/model",
         menu: []
+      }
+    ]
+  },
+  {
+    category: "Do",
+    apps: [
+      {
+        title: "Earn",
+        icon: earnIcon,
+        path: "/earn",
+        menu: [],
       }
     ]
   }
