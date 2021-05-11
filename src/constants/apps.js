@@ -31,9 +31,16 @@ export const APP_CATEGORIES = [
         title: "Documentation",
         icon: appDocumentationIcon,
         path: "/model",
-        menu: []
-      }
-    ]
+        menu: [],
+      },
+      {
+        title: "Community Admin",
+        icon: appDocumentationIcon,
+        path: "/community-admin",
+        menu: [],
+        roles: ["Community Admin"],
+      },
+    ],
   },
   {
     category: "Do",
@@ -43,7 +50,7 @@ export const APP_CATEGORIES = [
         icon: earnIcon,
         path: "/earn",
         menu: [],
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];

@@ -505,8 +505,7 @@ export const NOTIFICATIONS = [
     type: NOTIFICATION_TYPE.MEMBER_ADDED,
     rules: [
       {
-        text:
-          "You are requested to add <strong>{{userFullName}}</strong> as a copilot",
+        text: "You are requested to add <strong>{{userFullName}}</strong> as a copilot",
         topcoderRoles: [ROLE_CONNECT_COPILOT_MANAGER],
         goTo: GOTO.TOPCODER_TEAM,
       },
@@ -843,8 +842,7 @@ export const NOTIFICATIONS = [
     type: NOTIFICATION_TYPE.UPDATES,
     rules: [
       {
-        text:
-          "<strong>{{userHandle}}</strong> updated the project specification",
+        text: "<strong>{{userHandle}}</strong> updated the project specification",
         shouldBundle: true,
         bundledText:
           "Project specification has been modified {{bundledCount}} times. Last modified by: <strong>{{userHandle}}</strong>",
@@ -867,8 +865,7 @@ export const NOTIFICATIONS = [
     type: NOTIFICATION_TYPE.UPDATES,
     rules: [
       {
-        text:
-          "<strong>{{userFullName}}</strong> updated the project specification",
+        text: "<strong>{{userFullName}}</strong> updated the project specification",
         shouldBundle: true,
         bundledText:
           "Project specification has been modified {{bundledCount}} times. Last modified by: <strong>{{userHandle}}</strong>",
@@ -1161,8 +1158,7 @@ export const NOTIFICATIONS = [
         goTo: GOTO.PHASE,
       },
       {
-        text:
-          "<strong>{{userHandle}}</strong> activated a milestone in the phase",
+        text: "<strong>{{userHandle}}</strong> activated a milestone in the phase",
         shouldBundle: true,
         bundledText:
           "Milestones activated {{bundledCount}} times. Last activated by: <strong>{{userHandle}}</strong>",
@@ -1191,8 +1187,7 @@ export const NOTIFICATIONS = [
         goTo: GOTO.PHASE,
       },
       {
-        text:
-          "<strong>{{userHandle}}</strong> completed a milestone in the phase",
+        text: "<strong>{{userHandle}}</strong> completed a milestone in the phase",
         shouldBundle: true,
         bundledText:
           "Milestones completed {{bundledCount}} times. Last completed by: <strong>{{userHandle}}</strong>",
@@ -1218,8 +1213,7 @@ export const NOTIFICATIONS = [
         goTo: GOTO.PHASE,
       },
       {
-        text:
-          "Waiting for customer on a milestone in the project {{projectName}}",
+        text: "Waiting for customer on a milestone in the project {{projectName}}",
         projectRoles: [
           PROJECT_ROLE_COPILOT,
           PROJECT_ROLE_MANAGER,

@@ -59,6 +59,7 @@ Make sure you have [Heroky CLI](https://devcenter.heroku.com/articles/heroku-cli
 ### Cross microfrontend imports
 
 This app exports functions to be imported by other microapps.
+
 - `login` - redirects to login page
 - `logout` - clears session storage and redirects to logout page
 - `setAppMenu` - sets sidebar menu for the app by app's `path`
@@ -83,6 +84,7 @@ When we want to use methods exported in the navbar microapp in other apps we hav
 For example see https://github.com/topcoder-platform/micro-frontends-react-app
 
 1. Add `@topcoder/micro-frontends-navbar-app` to `externals` in webpack config:
+
    ```js
    externals: {
       "@topcoder/micro-frontends-navbar-app": "@topcoder/micro-frontends-navbar-app",
@@ -92,13 +94,13 @@ For example see https://github.com/topcoder-platform/micro-frontends-react-app
 2. As `importmaps` only work in browser and don't work in unit test, we have to mock this module in unit tests. For example by creating a file `src/__mocks__/@topcoder/micro-frontends-navbar-app.js` with the content like:
    ```js
    module.exports = {
-      login: () => {},
-      logout: () => {},
-      setAppMenu: () => {},
-      getAuthUserTokens: () => new Promise(() => {}),
-      getAuthUserProfile: () => new Promise(() => {}),
-      disableSidebarForRoute: () => {},
-      enableSidebarForRoute: () => {},
+     login: () => {},
+     logout: () => {},
+     setAppMenu: () => {},
+     getAuthUserTokens: () => new Promise(() => {}),
+     getAuthUserProfile: () => new Promise(() => {}),
+     disableSidebarForRoute: () => {},
+     enableSidebarForRoute: () => {},
    };
    ```
 
@@ -107,6 +109,7 @@ For example see https://github.com/topcoder-platform/micro-frontends-react-app
 For example see https://github.com/topcoder-platform/micro-frontends-angular-app
 
 1. Add `@topcoder/micro-frontends-navbar-app` to `externals` in webpack config:
+
    ```js
    externals: {
       "@topcoder/micro-frontends-navbar-app": "@topcoder/micro-frontends-navbar-app",
@@ -114,6 +117,7 @@ For example see https://github.com/topcoder-platform/micro-frontends-angular-app
    ```
 
 2. Add type definition in `src/typings.d.ts`:
+
    ```js
    declare module '@topcoder/micro-frontends-navbar-app' {
      export const login: any;
@@ -123,7 +127,7 @@ For example see https://github.com/topcoder-platform/micro-frontends-angular-app
      export const getAuthUserProfile: any;
      export const disableSidebarForRoute: any;
      export const enableSidebarForRoute: any;
-  }
+   }
    ```
 
 3. TODO: How to make e2e tests work for Angular? So far they fail with error `Module not found: Error: Can't resolve '@topcoder/micro-frontends-navbar-app'`

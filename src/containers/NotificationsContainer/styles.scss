@@ -1,5 +1,5 @@
 // this is to include tc styles in the output library
-@import '~tc-ui/src/styles/tc-includes';
+@import "~tc-ui/src/styles/tc-includes";
 
 :global {
   .container {
@@ -28,7 +28,7 @@
 
     @media screen and (min-width: $screen-md) and (max-width: 280px * 3) {
       /* minus sidebar border width */
-      width: calc(100% * 2/3 - 1px);
+      width: calc(100% * 2 / 3 - 1px);
     }
 
     @media screen and (max-width: $screen-md - 1px) {

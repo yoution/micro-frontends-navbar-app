@@ -4,21 +4,21 @@
  * The component to contain View All Notifications page.
  */
 import React from "react";
-import { Portal } from 'react-portal'
-import { useNavigate } from '@reach/router'
-import Notifications from '../../containers/NotificationsContainer'
-import XMark from '../../assets/icons/x-mark.svg'
+import { Portal } from "react-portal";
+import { useNavigate } from "@reach/router";
+import Notifications from "../../containers/NotificationsContainer";
+import XMark from "../../assets/icons/x-mark.svg";
 import "./styles.scss";
 
 const NotificationsModal = ({ isEmpty }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const close = (
     <button
       key="close"
       styleName="close"
       onClick={() => {
-        navigate('/')
+        navigate("/");
       }}
     >
       <XMark styleName="icon-x-mark" />
@@ -39,4 +39,4 @@ const NotificationsModal = ({ isEmpty }) => {
   );
 };
 
-export default NotificationsModal
+export default NotificationsModal;
