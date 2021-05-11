@@ -63,9 +63,17 @@ const Menu = ({ options, sidebarCollapsed }) => (
               activeClassName="menu-link-active"
               className="menu-link"
             >
-              <img src={option.activeIcon} className="subroute-icon active-icon" alt="Subroute Icon"/>
-              <img src={option.icon} className="subroute-icon gray-icon" alt="Subroute Icon"/>
-              {!sidebarCollapsed ?  option.title : ''}
+              <img
+                src={option.activeIcon}
+                className="subroute-icon active-icon"
+                alt="Subroute Icon"
+              />
+              <img
+                src={option.icon}
+                className="subroute-icon gray-icon"
+                alt="Subroute Icon"
+              />
+              {!sidebarCollapsed ? option.title : ""}
             </NavLink>
           </Fragment>
         ) : (

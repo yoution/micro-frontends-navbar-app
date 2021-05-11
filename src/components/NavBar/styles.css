@@ -11,7 +11,7 @@
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
-.navbar-left  {
+.navbar-left {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,7 +25,6 @@
   font-size: 22px;
   text-align: left;
   color: #fff;
-
 }
 .navbar-divider {
   width: 1px;

@@ -1,15 +1,15 @@
 /**
  * Filter section
  */
-import React from 'react'
-import PropTypes from 'prop-types'
-import SideFilterSectionItem from './SideFilterSectionItem'
-import './SideFilterSection.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import SideFilterSectionItem from "./SideFilterSectionItem";
+import "./SideFilterSection.scss";
 
 const SideFilterSection = (props) => (
   <li className="side-filter-section">
     <ul>
-      {props.filters.map(filter => (
+      {props.filters.map((filter) => (
         <SideFilterSectionItem
           key={filter.value}
           {...filter}
@@ -19,17 +19,17 @@ const SideFilterSection = (props) => (
       ))}
     </ul>
   </li>
-)
+);
 
 SideFilterSection.defaultProps = {
   filter: [],
-  selectedFilter: ''
-}
+  selectedFilter: "",
+};
 
 SideFilterSection.propTypes = {
   filter: PropTypes.array,
   onFilterItemClick: PropTypes.func.isRequired,
-  selectedFilter: PropTypes.string
-}
+  selectedFilter: PropTypes.string,
+};
 
-export default SideFilterSection
+export default SideFilterSection;
