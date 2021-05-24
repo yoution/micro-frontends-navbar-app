@@ -41,7 +41,6 @@ const SubMenu = ({ option }) => {
                 to={subOption.path}
                 activeClassName="menu-link-active"
                 className="menu-link"
-                exact
               >
                 {subOption.title}
               </NavLink>
@@ -63,7 +62,7 @@ const Menu = ({ options, sidebarCollapsed }) => (
               to={option.path}
               activeClassName="menu-link-active"
               className="menu-link"
-              exact
+              exact={option.isExact}
             >
               <img
                 src={option.activeIcon}
