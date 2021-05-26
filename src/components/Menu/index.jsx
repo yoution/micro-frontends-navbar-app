@@ -3,18 +3,18 @@
  *
  * General component to show menu with submenu.
  */
-import React, { Fragment, useCallback, useState } from "react";
-import { useLocation } from "@reach/router";
-import cn from "classnames";
-import { includes, map } from "lodash";
-import NavLink from "../NavLink";
-import "./styles.css";
+import React, { Fragment, useCallback, useState } from 'react';
+import { useLocation } from '@reach/router';
+import cn from 'classnames';
+import { includes, map } from 'lodash';
+import NavLink from '../NavLink';
+import './styles.css';
 
 const SubMenu = ({ option }) => {
   const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(
-    includes(map(option.children, "path"), location.pathname)
+    includes(map(option.children, 'path'), location.pathname)
   );
 
   const toggleOpen = useCallback(() => {
@@ -24,8 +24,8 @@ const SubMenu = ({ option }) => {
   return (
     <>
       <span
-        className={cn("menu-link menu-link-toggle", {
-          "menu-link-toggle-up": isOpen,
+        className={cn('menu-link menu-link-toggle', {
+          'menu-link-toggle-up': isOpen,
         })}
         onClick={toggleOpen}
         role="button"
@@ -62,10 +62,19 @@ const Menu = ({ options, sidebarCollapsed }) => (
               to={option.path}
               activeClassName="menu-link-active"
               className="menu-link"
+              exact={option.isExact}
             >
-              <img src={option.activeIcon} className="subroute-icon active-icon" alt="Subroute Icon"/>
-              <img src={option.icon} className="subroute-icon gray-icon" alt="Subroute Icon"/>
-              {!sidebarCollapsed ?  option.title : ''}
+              <img
+                src={option.activeIcon}
+                className="subroute-icon active-icon"
+                alt="Subroute Icon"
+              />
+              <img
+                src={option.icon}
+                className="subroute-icon gray-icon"
+                alt="Subroute Icon"
+              />
+              {!sidebarCollapsed ? option.title : ''}
             </NavLink>
           </Fragment>
         ) : (
