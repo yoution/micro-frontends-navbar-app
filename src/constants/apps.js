@@ -3,6 +3,7 @@
  */
 import appDocumentationIcon from "../assets/images/learn.svg";
 import appTaasIcon from "../assets/images/integrations.svg";
+import appTaasAdminIcon from "../assets/images/taas-admin.png";
 import myteamsIcon from "../assets/images/my-teams.svg";
 import myteamsGreenIcon from "../assets/images/my-teams-green.svg";
 
@@ -25,6 +26,12 @@ export const APP_CATEGORIES = [
             activeIcon: myteamsGreenIcon,
           },
         ],
+      },
+      {
+        title: "TaaS Admin",
+        icon: appTaasAdminIcon,
+        path: "/taas-admin",
+        menu: [],
       },
       {
         title: "Documentation",
