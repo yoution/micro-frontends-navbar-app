@@ -1,50 +1,60 @@
 /**
  * Config for the All Apps menu.
  */
-import appDocumentationIcon from "../assets/images/learn.svg";
-import appTaasIcon from "../assets/images/integrations.svg";
-import appTaasAdminIcon from "../assets/images/taas-admin.png";
-import myteamsIcon from "../assets/images/my-teams.svg";
-import myteamsGreenIcon from "../assets/images/my-teams-green.svg";
+import appDocumentationIcon from '../assets/images/learn.svg';
+import appTaasIcon from '../assets/images/integrations.svg';
+import appTaasAdminIcon from '../assets/images/taas-admin.png';
+import myteamsIcon from '../assets/images/my-teams.svg';
+import myteamsGreenIcon from '../assets/images/my-teams-green.svg';
+import createTeamIcon from '../assets/images/create-team.svg';
+import createTeamGreenIcon from '../assets/images/create-team-green.svg';
 
 /**
  * Micro-app categories
  */
 export const APP_CATEGORIES = [
   {
-    category: "Manage",
+    category: 'Manage',
     apps: [
       {
-        title: "TaaS",
+        title: 'TaaS',
         icon: appTaasIcon,
-        path: "/taas/myteams",
+        path: '/taas/myteams',
         menu: [
           {
-            title: "My Teams",
-            path: "/taas/myteams",
+            title: 'My Teams',
+            path: '/taas/myteams',
             icon: myteamsIcon,
             activeIcon: myteamsGreenIcon,
+            isExact: true,
+          },
+          {
+            title: 'Create New Team',
+            path: '/taas/myteams/createnewteam',
+            icon: createTeamIcon,
+            activeIcon: createTeamGreenIcon,
+            isExact: false,
           },
         ],
       },
       {
-        title: "TaaS Admin",
+        title: 'TaaS Admin',
         icon: appTaasAdminIcon,
-        path: "/taas-admin",
+        path: '/taas-admin',
         menu: [],
       },
       {
-        title: "Documentation",
+        title: 'Documentation',
         icon: appDocumentationIcon,
-        path: "/model",
-        menu: []
+        path: '/model',
+        menu: [],
       },
       {
-        title: "Community Admin",
+        title: 'Community Admin',
         icon: myteamsIcon,
-        path: "/community-admin",
-        menu: []
-      }
-    ]
-  }
+        path: '/community-admin',
+        menu: [],
+      },
+    ],
+  },
 ];
