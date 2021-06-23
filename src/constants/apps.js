@@ -8,6 +8,7 @@ import myteamsIcon from '../assets/images/my-teams.svg';
 import myteamsGreenIcon from '../assets/images/my-teams-green.svg';
 import createTeamIcon from '../assets/images/create-team.svg';
 import createTeamGreenIcon from '../assets/images/create-team-green.svg';
+import earnIcon from "../assets/images/earn.svg";
 
 /**
  * Micro-app categories
@@ -42,17 +43,25 @@ export const APP_CATEGORIES = [
         icon: appTaasAdminIcon,
         path: '/taas-admin',
         menu: [],
+        roles: ["bookingmanager","administrator"],
       },
       {
         title: 'Documentation',
         icon: appDocumentationIcon,
-        path: '/model',
+        path: "/model",
         menu: [],
       },
       {
-        title: 'Community Admin',
+        title: "Community Admin",
         icon: myteamsIcon,
-        path: '/community-admin',
+        path: "/community-admin",
+        menu: [],
+        roles: ["Community Admin"],
+      },
+      {
+        title: "Earn",
+        icon: earnIcon,
+        path: "/earn",
         menu: [],
       },
     ],

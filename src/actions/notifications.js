@@ -55,22 +55,14 @@ const handleDispatchNotificationSeenByType = (
   });
 };
 
-const handleDispatchNotificationRead = handleDispatchNotificationReadByType.bind(
-  this,
-  TOGGLE_NOTIFICATION_READ
-);
-const handleDispatchMarkAllNotificationsRead = handleDispatchNotificationReadByType.bind(
-  this,
-  MARK_ALL_NOTIFICATIONS_READ
-);
-const handleDispatchMarkNotificationsRead = handleDispatchNotificationReadByType.bind(
-  this,
-  MARK_NOTIFICATIONS_READ
-);
-const handleDispatchMarkAllNotificationsSeen = handleDispatchNotificationSeenByType.bind(
-  this,
-  MARK_ALL_NOTIFICATIONS_SEEN
-);
+const handleDispatchNotificationRead =
+  handleDispatchNotificationReadByType.bind(this, TOGGLE_NOTIFICATION_READ);
+const handleDispatchMarkAllNotificationsRead =
+  handleDispatchNotificationReadByType.bind(this, MARK_ALL_NOTIFICATIONS_READ);
+const handleDispatchMarkNotificationsRead =
+  handleDispatchNotificationReadByType.bind(this, MARK_NOTIFICATIONS_READ);
+const handleDispatchMarkAllNotificationsSeen =
+  handleDispatchNotificationSeenByType.bind(this, MARK_ALL_NOTIFICATIONS_SEEN);
 
 export const getNotifications = () => (dispatch) => {
   dispatch({ type: GET_NOTIFICATIONS_PENDING });
@@ -116,51 +108,51 @@ export const setNotificationsFilterBy = (filterBy) => (dispatch) =>
     payload: filterBy,
   });
 
-export const markAllNotificationsSeen = (sourceId, notifications = []) => (
-  dispatch
-) => {
-  let ids = null;
-  const sourceNfs = _.filter(notifications, (n) => !n.seen);
-  if (sourceNfs.length === 0) {
-    return;
-  }
-  ids = _.map(sourceNfs, (n) => n.id).join("-");
-
-  dispatch({
-    type: NOTIFICATIONS_PENDING,
-  });
-
-  handleDispatchMarkAllNotificationsSeen(dispatch, sourceId, true);
-  notificationsService.markNotificationsSeen(ids).catch((err) => {
-    Alert.error(`Failed to mark notification seen. ${err.message}`);
-    handleDispatchMarkAllNotificationsSeen(dispatch, sourceId, false);
-  });
-};
-
-export const markAllNotificationsRead = (sourceId, notifications = []) => (
-  dispatch
-) => {
-  let ids = null;
-  if (sourceId) {
-    const sourceNfs = _.filter(
-      notifications,
-      (n) => n.sourceId === sourceId && !n.isRead
-    );
+export const markAllNotificationsSeen =
+  (sourceId, notifications = []) =>
+  (dispatch) => {
+    let ids = null;
+    const sourceNfs = _.filter(notifications, (n) => !n.seen);
     if (sourceNfs.length === 0) {
       return;
     }
     ids = _.map(sourceNfs, (n) => n.id).join("-");
-  }
 
-  dispatch({
-    type: NOTIFICATIONS_PENDING,
-  });
-  handleDispatchMarkAllNotificationsRead(dispatch, sourceId, true);
-  notificationsService.markNotificationsRead(ids).catch((err) => {
-    Alert.error(`Failed to mark notifications read. ${err.message}`);
-    handleDispatchMarkAllNotificationsRead(dispatch, sourceId, false);
-  });
-};
+    dispatch({
+      type: NOTIFICATIONS_PENDING,
+    });
+
+    handleDispatchMarkAllNotificationsSeen(dispatch, sourceId, true);
+    notificationsService.markNotificationsSeen(ids).catch((err) => {
+      Alert.error(`Failed to mark notification seen. ${err.message}`);
+      handleDispatchMarkAllNotificationsSeen(dispatch, sourceId, false);
+    });
+  };
+
+export const markAllNotificationsRead =
+  (sourceId, notifications = []) =>
+  (dispatch) => {
+    let ids = null;
+    if (sourceId) {
+      const sourceNfs = _.filter(
+        notifications,
+        (n) => n.sourceId === sourceId && !n.isRead
+      );
+      if (sourceNfs.length === 0) {
+        return;
+      }
+      ids = _.map(sourceNfs, (n) => n.id).join("-");
+    }
+
+    dispatch({
+      type: NOTIFICATIONS_PENDING,
+    });
+    handleDispatchMarkAllNotificationsRead(dispatch, sourceId, true);
+    notificationsService.markNotificationsRead(ids).catch((err) => {
+      Alert.error(`Failed to mark notifications read. ${err.message}`);
+      handleDispatchMarkAllNotificationsRead(dispatch, sourceId, false);
+    });
+  };
 
 export const toggleNotificationRead = (notificationId) => (dispatch) => {
   handleDispatchNotificationRead(dispatch, notificationId, true);
@@ -170,21 +162,19 @@ export const toggleNotificationRead = (notificationId) => (dispatch) => {
   });
 };
 
-export const toggleBundledNotificationRead = (
-  bundledNotificationId,
-  bundledIds
-) => (dispatch) => {
-  dispatch({
-    type: NOTIFICATIONS_PENDING,
-  });
-  handleDispatchNotificationRead(dispatch, bundledNotificationId, true);
-  notificationsService
-    .markNotificationsRead(bundledIds.join("-"))
-    .catch((err) => {
-      Alert.error(`Failed to mark notification read. ${err.message}`);
-      handleDispatchNotificationRead(dispatch, bundledNotificationId, false);
+export const toggleBundledNotificationRead =
+  (bundledNotificationId, bundledIds) => (dispatch) => {
+    dispatch({
+      type: NOTIFICATIONS_PENDING,
     });
-};
+    handleDispatchNotificationRead(dispatch, bundledNotificationId, true);
+    notificationsService
+      .markNotificationsRead(bundledIds.join("-"))
+      .catch((err) => {
+        Alert.error(`Failed to mark notification read. ${err.message}`);
+        handleDispatchNotificationRead(dispatch, bundledNotificationId, false);
+      });
+  };
 
 export const toggleNotificationSeen = (notificationId) => (dispatch) => {
   dispatch({
@@ -216,20 +206,18 @@ export const hideOlderNotifications = () => (dispatch) =>
     type: HIDE_OLDER_NOTIFICATIONS_SUCCESS,
   });
 
-export const markNotificationsReadByCriteria = (criteria) => (
-  dispatch,
-  getState
-) => {
-  const notifications = getState().notifications.notifications;
-  const notificationsToRead = filterReadNotifications(
-    filterNotificationsByCriteria(notifications, criteria)
-  );
+export const markNotificationsReadByCriteria =
+  (criteria) => (dispatch, getState) => {
+    const notifications = getState().notifications.notifications;
+    const notificationsToRead = filterReadNotifications(
+      filterNotificationsByCriteria(notifications, criteria)
+    );
 
-  if (notificationsToRead.length > 0) {
-    const notificationIds = _.map(notificationsToRead, "id");
-    markNotificationsRead(notificationIds)(dispatch, getState);
-  }
-};
+    if (notificationsToRead.length > 0) {
+      const notificationIds = _.map(notificationsToRead, "id");
+      markNotificationsRead(notificationIds)(dispatch, getState);
+    }
+  };
 
 export const markNotificationsRead = (notificationIds) => (dispatch) => {
   dispatch({

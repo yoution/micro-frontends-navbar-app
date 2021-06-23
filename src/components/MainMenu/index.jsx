@@ -24,51 +24,53 @@ const MainMenu = ({ app, sidebarCollapsed, toggleSidebar }) => {
   }, [isOpenMenu, setIsOpenMenu]);
 
   return (
-    <div className={cn("main-menu", {
-      "main-menu-collapsed": sidebarCollapsed && !isMobile,
-      })}>
+    <div
+      className={cn("main-menu", {
+        "main-menu-collapsed": sidebarCollapsed && !isMobile,
+      })}
+    >
       {isMobile ? (
         <Fragment>
-        <div className="main-menu-header">
-          <div
-            className={cn("main-menu-title", {
-              "main-menu-title-up": isOpenMenu,
-            })}
-            onClick={toggleMenu}
-            role="button"
-            tabIndex="0"
-          >
-            {app.title}
+          <div className="main-menu-header">
+            <div
+              className={cn("main-menu-title", {
+                "main-menu-title-up": isOpenMenu,
+              })}
+              onClick={toggleMenu}
+              role="button"
+              tabIndex="0"
+            >
+              {app.title}
+            </div>
           </div>
-        </div>
-        {
-          isOpenMenu ? (
+          {isOpenMenu ? (
             <Fragment>
               <div className="main-menu-mobile">
                 <Menu sidebarCollapsed={sidebarCollapsed} options={app.menu} />
               </div>
             </Fragment>
-          ) : <Fragment></Fragment>
-        }
+          ) : (
+            <Fragment></Fragment>
+          )}
         </Fragment>
       ) : (
         <Fragment>
           <div className="main-menu-header">
-            {sidebarCollapsed ? 
+            {sidebarCollapsed ? (
               <img
                 src={hamburgerIcon}
                 onClick={toggleSidebar}
                 alt="Hamburger Toggle Icon"
                 className="menu-toggle-icon hamburger-icon"
               />
-              :
+            ) : (
               <img
                 src={closeIcon}
                 onClick={toggleSidebar}
                 alt="Close Icon"
                 className="menu-toggle-icon close-icon"
               />
-            }
+            )}
           </div>
           <Menu sidebarCollapsed={sidebarCollapsed} options={app.menu} />
         </Fragment>

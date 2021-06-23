@@ -1,5 +1,5 @@
 // this is to include tc styles in the output library
-@import '~tc-ui/src/styles/tc-includes';
+@import "~tc-ui/src/styles/tc-includes";
 
 :global {
   .notifications-dropdown-header {
@@ -27,12 +27,13 @@
         line-height: 39px;
         position: relative;
         &:after {
-          content: '\a0\b7\a0';
+          content: "\a0\b7\a0";
           display: inline-block;
         }
       }
 
-      .mark-all, .settings {
+      .mark-all,
+      .settings {
         @include roboto;
         background: none;
         border: 0;
@@ -42,7 +43,7 @@
         font-size: 12px;
         letter-spacing: 0;
         padding: 0;
-        align-self: flex-end
+        align-self: flex-end;
       }
     }
   }

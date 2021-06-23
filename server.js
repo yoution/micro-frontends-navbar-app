@@ -4,8 +4,8 @@ const express = require('express');
 const app = express();
 
 app.use(
-  '/navbar',
-  express.static('./dist', {
+  "/navbar",
+  express.static("./dist", {
     setHeaders: function setHeaders(res) {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET');
@@ -17,10 +17,10 @@ app.use(
   })
 );
 
-app.get('/', function (req, res) {
-  res.send('alive');
+app.get("/", function (req, res) {
+  res.send("alive");
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, '0.0.0.0');
+app.listen(PORT, "0.0.0.0");
 console.log(`App is hosted on port ${PORT}.`); // eslint-disable-line no-console

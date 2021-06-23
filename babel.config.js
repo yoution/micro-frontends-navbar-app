@@ -1,59 +1,57 @@
 let cssLocalIdent;
-if (process.env.APPMODE == 'development') {
-  cssLocalIdent = 'navbar_[path][name]___[local]___[hash:base64:6]';
+if (process.env.APPMODE == "development") {
+  cssLocalIdent = "navbar_[path][name]___[local]___[hash:base64:6]";
 } else {
-  cssLocalIdent = '[hash:base64:6]';
+  cssLocalIdent = "[hash:base64:6]";
 }
 
 const config = {
-  presets: ['@babel/preset-env', '@babel/preset-react'],
+  presets: ["@babel/preset-env", "@babel/preset-react"],
   plugins: [
     [
-      '@babel/plugin-transform-runtime',
+      "@babel/plugin-transform-runtime",
       {
         useESModules: true,
-        regenerator: false
-      }
+        regenerator: false,
+      },
     ],
     [
-      'module-resolver',
+      "module-resolver",
       {
-        extensions: ['.js', '.jsx'],
-        root: [
-          './src'
-        ]
-      }
+        extensions: [".js", ".jsx"],
+        root: ["./src"],
+      },
     ],
     [
-      'inline-react-svg',
+      "inline-react-svg",
       {
-        ignorePattern: '[/\/]assets[/\/]images'
-      }
+        ignorePattern: "[//]assets[//]images",
+      },
     ],
     [
-      'react-css-modules',
+      "react-css-modules",
       {
         filetypes: {
-          '.scss': {
-            syntax: 'postcss-scss'
-          }
+          ".scss": {
+            syntax: "postcss-scss",
+          },
         },
-        generateScopedName: cssLocalIdent
-      }
-    ]
+        generateScopedName: cssLocalIdent,
+      },
+    ],
   ],
   env: {
     test: {
       presets: [
         [
-          '@babel/preset-env',
+          "@babel/preset-env",
           {
-            targets: 'current node'
-          }
-        ]
-      ]
-    }
-  }
-}
+            targets: "current node",
+          },
+        ],
+      ],
+    },
+  },
+};
 
 module.exports = config;

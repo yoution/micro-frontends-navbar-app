@@ -152,11 +152,10 @@
 }
 
 @media (max-width: 1023px) {
-
   .all-apps-menu-category-name {
     font-size: 15px;
   }
-  
+
   .switch-category-title {
     margin: 12px 24px;
     font-size: 15px;
@@ -176,7 +175,7 @@
     padding-top: 30px;
     padding-bottom: 15px;
   }
-  .all-apps-menu-list > li  {
+  .all-apps-menu-list > li {
     display: flex;
     align-items: center;
     height: 50px;
@@ -204,7 +203,6 @@
     width: 30px;
     margin-right: 14px;
   }
-
 
   .all-apps-menu-list-title {
     font-size: 24px;

@@ -4,17 +4,20 @@
  * FIXME reimplement this component using general Button component from `topcoder-react-utils`
  *       after update to the latest version of `topcoder-react-utils`
  */
-import React from 'react'
-import { Link } from '@reach/router'
+import React from "react";
+import { Link } from "@reach/router";
 
-import './styles.scss'
+import "./styles.scss";
 
-const NotificationsReadAll = ({ children, to, onClick }) => (
+const NotificationsReadAll = ({ children, to, onClick }) =>
   to ? (
-    <Link styleName="read-all" to={to}>{children}</Link>
+    <Link styleName="read-all" to={to}>
+      {children}
+    </Link>
   ) : (
-    <button styleName="read-all" onClick={onClick}>{children}</button>
-  )
-)
+    <button styleName="read-all" onClick={onClick}>
+      {children}
+    </button>
+  );
 
-export default NotificationsReadAll
+export default NotificationsReadAll;

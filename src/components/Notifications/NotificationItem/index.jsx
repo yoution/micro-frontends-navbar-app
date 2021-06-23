@@ -3,48 +3,48 @@
  *
  * Has a tick to toggle read status
  */
-import React from 'react'
-import PropTypes from 'prop-types'
-import _ from 'lodash'
-import cn from 'classnames'
-import { NOTIFICATION_TYPE } from '../../../constants/notifications'
-import moment from 'moment'
-import './styles.scss'
-import Check from '../../../assets/icons/check.svg'
-import IconNotificationMememberAdded from '../../../assets/icons/notification-member-added.svg'
-import IconNotificationNewPosts from '../../../assets/icons/notification-new-posts.svg'
-import IconNotificationNewProject from '../../../assets/icons/notification-new-project.svg'
-import IconNotificationReviewPending from '../../../assets/icons/notification-review-pending.svg'
-import IconNotificationUpdates from '../../../assets/icons/notification-updates.svg'
-import IconNotificationWarning from '../../../assets/icons/notification-warning.svg'
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
+import cn from "classnames";
+import { NOTIFICATION_TYPE } from "../../../constants/notifications";
+import moment from "moment";
+import "./styles.scss";
+import Check from "../../../assets/icons/check.svg";
+import IconNotificationMememberAdded from "../../../assets/icons/notification-member-added.svg";
+import IconNotificationNewPosts from "../../../assets/icons/notification-new-posts.svg";
+import IconNotificationNewProject from "../../../assets/icons/notification-new-project.svg";
+import IconNotificationReviewPending from "../../../assets/icons/notification-review-pending.svg";
+import IconNotificationUpdates from "../../../assets/icons/notification-updates.svg";
+import IconNotificationWarning from "../../../assets/icons/notification-warning.svg";
 
 /**
  * @parmas {string} type notification type
  * @parmas {string} class name
  */
 const NotificationIcons = ({ type, className }) => {
-  switch(type){
-  case 'member-added':
-    return <IconNotificationMememberAdded className={className}/>
-  case 'new-posts':
-    return <IconNotificationNewPosts className={className}/>
-  case 'new-project':
-    return <IconNotificationNewProject className={className}/>
-  case 'review-pending':
-    return <IconNotificationReviewPending className={className}/>
-  case 'updates':
-    return <IconNotificationUpdates className={className}/>
-  case 'warning':
-    return <IconNotificationWarning className={className}/>
-  default:
-    return <svg width="0" height="0" />
+  switch (type) {
+    case "member-added":
+      return <IconNotificationMememberAdded className={className} />;
+    case "new-posts":
+      return <IconNotificationNewPosts className={className} />;
+    case "new-project":
+      return <IconNotificationNewProject className={className} />;
+    case "review-pending":
+      return <IconNotificationReviewPending className={className} />;
+    case "updates":
+      return <IconNotificationUpdates className={className} />;
+    case "warning":
+      return <IconNotificationWarning className={className} />;
+    default:
+      return <svg width="0" height="0" />;
   }
-}
+};
 
 NotificationIcons.propTypes = {
   type: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired
-}
+  className: PropTypes.string.isRequired,
+};
 
 /**
  * Format date
@@ -59,54 +59,75 @@ NotificationIcons.propTypes = {
  * @return {String}      formated date
  */
 const formatDate = (date) => {
-  const today = moment()
-  const mDate = moment(date)
-  let format
+  const today = moment();
+  const mDate = moment(date);
+  let format;
 
-  if (mDate.isSame(today, 'd')) {
-    format = mDate.fromNow()
-  } else if (mDate.isSame(today, 'y')) {
-    format = mDate.format('MMM DD')
+  if (mDate.isSame(today, "d")) {
+    format = mDate.fromNow();
+  } else if (mDate.isSame(today, "y")) {
+    format = mDate.format("MMM DD");
   } else {
-    format = mDate.format('MMM DD, YYYY')
+    format = mDate.format("MMM DD, YYYY");
   }
 
-  return format
-}
+  return format;
+};
 
 const NotificationItem = (props) => {
-  const { id, onLinkClick } = props
+  const { id, onLinkClick } = props;
   const notificationItem = (
-    <div className={cn('notification-item', props.goto ? '' : props.transitionState)}>
+    <div
+      className={cn(
+        "notification-item",
+        props.goto ? "" : props.transitionState
+      )}
+    >
       <div className="icon">
-        <NotificationIcons type={props.type} className={'icon-notification' + props.type }/>
+        <NotificationIcons
+          type={props.type}
+          className={"icon-notification" + props.type}
+        />
       </div>
       <div className="body">
-        <p className="content" dangerouslySetInnerHTML={{ __html: props.text }} />
+        <p
+          className="content"
+          dangerouslySetInnerHTML={{ __html: props.text }}
+        />
         <p className="date">{formatDate(props.date)}</p>
       </div>
       <div className="mark-read">
         <button
           onClick={(evt) => {
-            evt.preventDefault()
-            evt.stopPropagation()
-            props.onReadToggleClick(props.id)
+            evt.preventDefault();
+            evt.stopPropagation();
+            props.onReadToggleClick(props.id);
           }}
         >
-          <Check className="icon-check"/>
+          <Check className="icon-check" />
         </button>
       </div>
     </div>
-  )
+  );
 
-  return (
-    props.goto
-      ? <a className={cn('notification-item-link', {unseen: !props.seen}, props.transitionState)} href={props.goto} onClick={() => onLinkClick(id)}>{notificationItem}</a>
-      : notificationItem
-  )
-}
+  return props.goto ? (
+    <a
+      className={cn(
+        "notification-item-link",
+        { unseen: !props.seen },
+        props.transitionState
+      )}
+      href={props.goto}
+      onClick={() => onLinkClick(id)}
+    >
+      {notificationItem}
+    </a>
+  ) : (
+    notificationItem
+  );
+};
 
-const notificationType = PropTypes.oneOf(_.values(NOTIFICATION_TYPE))
+const notificationType = PropTypes.oneOf(_.values(NOTIFICATION_TYPE));
 
 NotificationItem.propTypes = {
   type: notificationType.isRequired,
@@ -118,6 +139,6 @@ NotificationItem.propTypes = {
   seen: PropTypes.bool,
   onReadToggleClick: PropTypes.func.isRequired,
   onLinkClick: PropTypes.func.isRequired,
-}
+};
 
-export default NotificationItem
+export default NotificationItem;
