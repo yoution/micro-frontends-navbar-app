@@ -19,18 +19,18 @@ export const APP_CATEGORIES = [
       {
         title: 'TaaS',
         icon: appTaasIcon,
-        path: '/taas/myteams',
+        path: '/taas',
         menu: [
           {
             title: 'My Teams',
             path: '/taas/myteams',
             icon: myteamsIcon,
             activeIcon: myteamsGreenIcon,
-            isExact: true,
+            isExact: false,
           },
           {
             title: 'Create New Team',
-            path: '/taas/myteams/createnewteam',
+            path: '/taas/createnewteam',
             icon: createTeamIcon,
             activeIcon: createTeamGreenIcon,
             isExact: false,
