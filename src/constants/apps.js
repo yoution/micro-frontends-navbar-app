@@ -59,10 +59,15 @@ export const APP_CATEGORIES = [
         roles: ["Community Admin"],
       },
       {
-        title: "Earn",
-        icon: earnIcon,
-        path: "/earn",
-        menu: [],
+        category: "Do",
+        apps: [
+          {
+            title: "Earn",
+            icon: earnIcon,
+            path: "/earn",
+            menu: [],
+          },
+        ],
       },
     ],
   },
