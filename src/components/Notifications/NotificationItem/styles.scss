@@ -1,5 +1,5 @@
 // this is to include tc styles in the output library
-@import '~tc-ui/src/styles/tc-includes';
+@import "~tc-ui/src/styles/tc-includes";
 
 :global {
   .notification-item-link {
@@ -18,7 +18,7 @@
     &.unseen {
       .notification-item {
         box-shadow: inset 2px 0 0 0 $tc-light-blue;
-        &:hover{
+        &:hover {
           box-shadow: none;
         }
       }

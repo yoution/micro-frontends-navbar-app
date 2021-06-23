@@ -3,10 +3,10 @@
  *
  * Visually splits filters into sections.
  */
-import React from 'react'
-import PropTypes from 'prop-types'
-import SideFilterSection from './SideFilterSection'
-import './SideFilter.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import SideFilterSection from "./SideFilterSection";
+import "./SideFilter.scss";
 
 const SideFilter = (props) => (
   <div className="side-filter">
@@ -20,23 +20,21 @@ const SideFilter = (props) => (
         />
       ))}
     </ul>
-    {props.children &&
-      <div className="additional-content">
-        {props.children}
-      </div>
-    }
+    {props.children && (
+      <div className="additional-content">{props.children}</div>
+    )}
   </div>
-)
+);
 
 SideFilter.defaultProps = {
   filterSections: [],
-  selectedFilter: ''
-}
+  selectedFilter: "",
+};
 
 SideFilter.propTypes = {
   filterSections: PropTypes.array,
   onFilterItemClick: PropTypes.func.isRequired,
-  selectedFilter: PropTypes.string
-}
+  selectedFilter: PropTypes.string,
+};
 
-export default SideFilter
+export default SideFilter;

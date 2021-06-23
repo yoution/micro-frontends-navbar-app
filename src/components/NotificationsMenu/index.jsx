@@ -4,9 +4,9 @@
  * Component to show the bell icon and the notification dropdown
  */
 
-import React, {} from "react";
+import React from "react";
 import "./styles.css";
-import NotificationDropdown from '../../containers/NotificationsDropdownContainer'
+import NotificationDropdown from "../../containers/NotificationsDropdownContainer";
 
 const NotificationsMenu = () => {
   return (

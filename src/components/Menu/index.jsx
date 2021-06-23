@@ -74,7 +74,7 @@ const Menu = ({ options, sidebarCollapsed }) => (
                 className="subroute-icon gray-icon"
                 alt="Subroute Icon"
               />
-              {!sidebarCollapsed ? option.title : ''}
+              {!sidebarCollapsed ? option.title : ""}
             </NavLink>
           </Fragment>
         ) : (

@@ -25,7 +25,7 @@ const UserMenu = ({ profile }) => {
   const toggleMenu = useCallback(() => {
     setIsOpenMenu(!isOpenMenu);
   }, [isOpenMenu, setIsOpenMenu]);
-  
+
   const onLogoutClick = useCallback((evt) => {
     evt.preventDefault();
     logout();
@@ -43,8 +43,11 @@ const UserMenu = ({ profile }) => {
           tabIndex="0"
         >
           <Avatar profile={profile} />
-          {isMobile ? (<Fragment></Fragment>) : (<div className="user-menu-handle">{profile.handle}</div>) }
-
+          {isMobile ? (
+            <Fragment></Fragment>
+          ) : (
+            <div className="user-menu-handle">{profile.handle}</div>
+          )}
         </div>
 
         {isOpenMenu && (
@@ -60,7 +63,9 @@ const UserMenu = ({ profile }) => {
               <div className="user-menu-popover-content">
                 <ul className="user-menu-list">
                   <li>
-                    <a href={getLogoutUrl()} onClick={onLogoutClick}>Log Out</a>
+                    <a href={getLogoutUrl()} onClick={onLogoutClick}>
+                      Log Out
+                    </a>
                   </li>
                 </ul>
               </div>
